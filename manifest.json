@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Tính Điểm IUH – Công Cụ Tự Động Cho Sinh Viên",
+  "version": "1.0.0",
+  "description": "Tiện ích hỗ trợ sinh viên IUH tự động tính điểm trung bình và điểm tích lũy từ trang sv.iuh.edu.vn.",
+  
+  "author": "Developed by Thành Phát – htphat.fit@gmail.com",   
+
+  "icons": {
+    "16": "icons/iuh.png",
+    "48": "icons/iuh.png",
+    "128": "icons/iuh.png"
+  },
+
+  "action": {
+    "default_title": "IUH GPA Calculator",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/iuh.png",
+      "48": "icons/iuh.png",
+      "128": "icons/iuh.png"
+    }
+  },
+
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["*://sv.iuh.edu.vn/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+
+  "homepage_url": "https://iuh.edu.vn"
+}

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IUH GPA Simulator - VIP Edition</title>
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.6);
+            --text-dark: #1e293b;
+            --text-gray: #64748b;
+            --success-color: #10b981;
+            --btn-gradient: linear-gradient(to right, #10b981, #059669);
+            --btn-hover: linear-gradient(to right, #059669, #047857);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            width: 380px;
+            min-height: 480px;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: var(--text-dark);
+            padding: 16px;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Container chính với hiệu ứng kính */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: var(--glass-border);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+            padding: 24px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Trang trí nền mờ */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.4;
+            z-index: 0;
+        }
+        .blob-1 { top: -20px; right: -20px; width: 100px; height: 100px; background: #a855f7; }
+        .blob-2 { bottom: -20px; left: -20px; width: 100px; height: 100px; background: #eab308; }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .icon-header {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(to top right, #3b82f6, #06b6d4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            color: white;
+            box-shadow: var(--shadow-lg);
+            animation: float 3s ease-in-out infinite;
+        }
+        .icon-header svg { width: 24px; height: 24px; fill: currentColor; }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0px); }
+        }
+
+        h1 { font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+        p.subtitle { font-size: 11px; color: var(--text-gray); font-weight: 500; }
+
+        /* Nút bấm */
+        .btn-glow {
+            width: 100%;
+            padding: 12px;
+            background: var(--btn-gradient);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+        .btn-glow:hover {
+            transform: translateY(-2px);
+            background: var(--btn-hover);
+            box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.5);
+        }
+        .btn-glow svg { width: 16px; height: 16px; fill: currentColor; }
+
+        /* Lưới thông số */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s;
+        }
+        .card:hover { transform: scale(1.02); }
+        
+        .card.big { grid-column: span 2; padding: 16px; }
+        
+        .card-label { font-size: 11px; font-weight: 600; color: var(--text-gray); text-transform: uppercase; margin-bottom: 4px; display: flex; align-items: center; justify-content: center; gap: 4px; }
+        .card-label svg { width: 12px; height: 12px; fill: var(--text-gray); }
+
+        .big-number {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(to right, #2563eb, #9333ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 4px 0;
+            display: block;
+        }
+        .medium-number { font-size: 18px; font-weight: 700; color: var(--text-dark); }
+        
+        .progress-bar { height: 4px; width: 60px; background: linear-gradient(to right, #60a5fa, #c084fc); border-radius: 2px; margin: 4px auto 0; }
+
+        /* Hướng dẫn */
+        .guide-box {
+            background: rgba(239, 246, 255, 0.8);
+            border: 1px solid #dbeafe;
+            border-radius: 10px;
+            padding: 12px;
+            font-size: 12px;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        .guide-title {
+            color: #1d4ed8;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-transform: uppercase;
+            font-size: 10px;
+        }
+        .guide-list { list-style: none; padding: 0; }
+        .guide-list li {
+            margin-bottom: 6px;
+            color: #475569;
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            line-height: 1.4;
+        }
+        .guide-list li svg { width: 12px; height: 12px; margin-top: 2px; flex-shrink: 0; }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding-top: 12px;
+            margin-top: auto;
+            position: relative;
+            z-index: 1;
+        }
+        .footer p { font-size: 10px; color: #94a3b8; }
+        .footer a {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 10px;
+            background: #eff6ff;
+            padding: 4px 8px;
+            border-radius: 12px;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glass-panel">
+        <!-- Trang trí nền -->
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+
+        <!-- Header -->
+        <div class="header">
+            <div class="icon-header">
+                <!-- SVG Icon: Graduation Cap -->
+                <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6l9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+            </div>
+            <h1>IUH GPA Simulator</h1>
+            <p class="subtitle">Đại học Công nghiệp TP.HCM</p>
+        </div>
+
+        <!-- Nút Action -->
+        <button id="btnEnable" class="btn-glow">
+            <!-- SVG Icon: Rocket -->
+            <svg viewBox="0 0 24 24"><path d="M13.13 22.19L11.5 18.36C13.07 17.78 14.54 17 15.9 16.09L13.13 22.19M5.64 12.5L1.81 10.87L7.91 8.1C7 9.46 6.22 10.93 5.64 12.5M21.61 2.39C21.61 2.39 16.66 .29 11 5.93C12.77 6.7 14.34 7.76 15.69 9.11C17.05 10.46 18.11 12.03 18.88 13.81C24.5 8.15 22.4 3.18 22.4 3.18M13 5.86L16.29 4.34L14.76 7.63L13 5.86M3.35 19.64L8.85 14.15C9.37 14.67 9.88 15.19 10.35 15.65L4.85 21.15C4.46 21.54 3.82 21.54 3.43 21.15L2.23 19.95C1.84 19.56 1.84 18.92 2.23 18.53L3.35 19.64Z"/></svg>
+            <span>Bật Chế Độ Tính Điểm</span>
+        </button>
+
+        <!-- Lưới thống kê -->
+        <div class="stats-grid">
+            <!-- GPA 4 -->
+            <div class="card big">
+                <div class="card-label">
+                    <!-- SVG Icon: Chart -->
+                    <svg viewBox="0 0 24 24"><path d="M16,11.78L20.24,4.45L21.97,5.45L16.74,14.5L10.23,10.75L5.46,19H22V21H2V3H4V17.54L9.5,8L16,11.78Z"/></svg>
+                    ĐTB Hệ 4
+                </div>
+                <strong id="gpa4" class="big-number">0.00</strong>
+                <div class="progress-bar"></div>
+            </div>
+
+            <!-- Tín chỉ -->
+            <div class="card">
+                <div class="card-label">
+                    <!-- SVG Icon: Layers -->
+                    <svg viewBox="0 0 24 24"><path d="M12,16L19.36,10.27L21,9L12,2L3,9L4.63,10.27M12,18.54L4.62,12.81L3,14.07L12,21.07L21,14.07L19.37,12.8L12,18.54Z"/></svg>
+                    Tín Chỉ
+                </div>
+                <strong id="totalCredits" class="medium-number">0</strong>
+            </div>
+
+            <!-- Hệ 10 -->
+            <div class="card">
+                <div class="card-label">
+                    <!-- SVG Icon: Star -->
+                    <svg viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                    Hệ 10
+                </div>
+                <strong id="gpa10" class="medium-number">0.0</strong>
+            </div>
+        </div>
+
+        <!-- Hướng dẫn -->
+        <div class="guide-box">
+            <div class="guide-title">
+                <!-- SVG Icon: Info -->
+                Hướng dẫn nhanh
+            </div>
+            <ul class="guide-list">
+                <li>
+                    <svg style="fill: #10b981;" viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg>
+                    <span>Bấm nút trên để kích hoạt.</span>
+                </li>
+                <li>
+                    <svg style="fill: #3b82f6;" viewBox="0 0 24 24"><path d="M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M10,17L5,12L6.41,10.59L10,14.17L17.59,6.58L19,8L10,17Z"/></svg>
+                    <span><b>Bỏ tích</b> môn không tính (VD: GDQP).</span>
+                </li>
+                <li>
+                    <svg style="fill: #f59e0b;" viewBox="0 0 24 24"><path d="M14.06,9L15,9.94L5.92,19H5V18.08L14.06,9M17.66,3C17.41,3 17.15,3.1 16.96,3.29L15.13,5.12L18.88,8.87L20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18.17,3.09 17.92,3 17.66,3M14.06,6.19L3,17.25V21H6.75L17.81,9.94L14.06,6.19Z"/></svg>
+                    <span>Click vào <b>Ô Điểm</b> bất kỳ để sửa điểm.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Developed by <strong><a href="https://www.facebook.com/htphat.04" target="_blank">Thành Phát</a></strong></p>
+            <a href="mailto:htphat.fit@gmail.com">
+                <svg style="width: 12px; height: 12px; fill: currentColor;" viewBox="0 0 24 24"><path d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"/></svg>
+                htphat.fit@gmail.com
+            </a>
+        </div>
+    </div>
+
+    <!-- Script logic của bạn -->
+    <script src="popup.js"></script>
+</body>
+</html>
