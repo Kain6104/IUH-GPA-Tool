@@ -27,3 +27,19 @@ chrome://extensions/
 3. Bật Developer Mode (góc phải trên).
 4. Nhấn Load unpacked → chọn thư mục project IUH-GPA-Tool.
 5. Biểu tượng tool sẽ xuất hiện trên thanh tiện ích Chrome.
+### **Cách 2: Cài bằng file .zip**
+1. Tải repository về dưới dạng .zip.
+2. Giải nén → Load Unpacked theo hướng dẫn trên.
+## ⚙️ Hướng dẫn sử dụng
+1. Truy cập trang https://sv.iuh.edu.vn/ket-qua-hoc-tap.html
+ và đăng nhập.
+2. Nhấn vào biểu tượng IUH GPA Calculator trên thanh tiện ích Chrome.
+3. Tool sẽ tự động đọc tất cả điểm, tính GPA, và hiển thị kết quả ngay popup.
+4. (Tuỳ chọn) Xuất dữ liệu ra file Excel để lưu trữ.
+##📝 Công nghệ
+
+HTML, CSS, JavaScript: Giao diện popup tiện ích.
+
+Chrome Extension API: Tương tác trực tiếp với trang web IUH.
+
+XLSX.js (tùy chọn): Xuất dữ liệu ra Excel.
