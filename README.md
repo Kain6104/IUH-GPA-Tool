@@ -36,6 +36,7 @@ chrome://extensions/
 2. Nhấn vào biểu tượng IUH GPA Calculator trên thanh tiện ích Chrome.
 3. Tool sẽ tự động đọc tất cả điểm, tính GPA, và hiển thị kết quả ngay popup.
 4. (Tuỳ chọn) Xuất dữ liệu ra file Excel để lưu trữ.
+
 ##📝 Công nghệ
 HTML, CSS, JavaScript: Giao diện popup tiện ích.
 Chrome Extension API: Tương tác trực tiếp với trang web IUH.
