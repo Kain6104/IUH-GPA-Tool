@@ -1,4 +1,4 @@
-﻿# Tính Điểm IUH – Công Cụ Mô Phỏng Cho Sinh Viên
+# Tính Điểm IUH – Công Cụ Mô Phỏng Cho Sinh Viên
 
 **IUH GPA Tool** là tiện ích Chrome giúp sinh viên IUH xem phân tích điểm, thử các kịch bản điểm số và lập kế hoạch học tập trên trang Kết quả học tập. Tiện ích hỗ trợ tham khảo cá nhân; đây không phải sản phẩm chính thức của IUH.
 
