@@ -1,0 +1,32 @@
+Tính Điểm IUH – Công Cụ Mô Phỏng Cho Sinh Viên
+(IUH GPA Simulator & Study Assistant)
+
+Tiện ích học tập độc lập dành cho sinh viên Trường Đại học Công nghiệp TP.HCM (IUH), hỗ trợ theo dõi kết quả học tập, mô phỏng điểm số thi kết thúc học phần và lập kế hoạch GPA an toàn, chuẩn xác ngay trên cổng thông tin sinh viên.
+
+CÁC TÍNH NĂNG CHÍNH:
+1. Mô phỏng điểm số thông minh:
+- Nhập điểm thi kết thúc học phần dự kiến để tính điểm tổng kết, điểm hệ 4, hệ 10 và điểm chữ theo đúng quy chế đào tạo IUH.
+- Hiển thị trực quan môn Đạt / Không đạt và cảnh báo điểm liệt (dưới 4,0 điểm hệ 10).
+- Bảo toàn 100% dữ liệu gốc: Các ô điểm chính thức của nhà trường được giữ nguyên vẹn, tách biệt hoàn toàn với điểm số mô phỏng.
+
+2. Đồng bộ Chương trình khung (CTK):
+- Tự động đối chiếu các học phần đã học, đang học và chưa học trong chương trình đào tạo của từng chuyên ngành.
+- Nhận diện chính xác môn tự chọn, môn bắt buộc, môn loại trừ không tính GPA và phân bổ tín chỉ.
+
+3. Lập kế hoạch học kỳ tương lai & Mục tiêu GPA:
+- Dự báo GPA tích lũy khi hoàn thành các học kỳ tiếp theo.
+- Tính toán điểm số trung bình tối thiểu cần đạt để đạt mục tiêu tốt nghiệp (Xuất sắc, Giỏi, Khá).
+- Hỗ trợ kế hoạch học cải thiện / học lại môn học.
+
+4. Biểu đồ tiến trình & Xuất dữ liệu:
+- Biểu đồ xu hướng GPA qua từng học kỳ trực quan, chuẩn xác.
+- Xuất bảng mô phỏng ra định dạng bảng tính CSV an toàn với chuẩn UTF-8 BOM.
+
+5. Quyền riêng tư & An toàn bảo mật:
+- Hoạt động 100% cục bộ trên trình duyệt của sinh viên.
+- Không gửi bất kỳ dữ liệu học tập nào tới máy chủ của nhà phát triển hoặc bên thứ ba.
+- Không đọc, không lưu mật khẩu hay thông tin cá nhân của sinh viên.
+- Dễ dàng Bật / Tắt tiện ích từ biểu tượng popup trên thanh công cụ.
+
+LƯU Ý QUAN TRỌNG:
+Tiện ích là công cụ hỗ trợ học tập phi thương mại do sinh viên phát triển, không phải ứng dụng chính thức của Trường Đại học Công nghiệp TP.HCM. Bảng điểm chính thức luôn căn cứ trên dữ liệu gốc tại cổng sv.iuh.edu.vn.

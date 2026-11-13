@@ -1,0 +1,69 @@
+{
+  "manifest_version": 3,
+  "name": "Tính Điểm IUH – Công Cụ Mô Phỏng Cho Sinh Viên",
+  "version": "1.1.1",
+  "description": "Tiện ích hỗ trợ sinh viên IUH theo dõi, phân tích và mô phỏng điểm số an toàn cục bộ.",
+  "author": "Developed by Thành Phát – htphat.fit@gmail.com",
+  "icons": {
+    "16": "icons/iuh.png",
+    "48": "icons/iuh.png",
+    "128": "icons/iuh.png"
+  },
+  "action": {
+    "default_title": "IUH GPA Simulator",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/iuh.png",
+      "48": "icons/iuh.png",
+      "128": "icons/iuh.png"
+    }
+  },
+  "permissions": [
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://sv.iuh.edu.vn/ket-qua-hoc-tap.html*"
+      ],
+      "css": [
+        "src/ui/styles.css"
+      ],
+      "js": [
+        "src/utils/result.js",
+        "src/parsers/NumberParser.js",
+        "src/parsers/HeaderGridParser.js",
+        "src/adapters/IUHPageAdapter.js",
+        "src/adapters/IUHCurriculumAdapter.js",
+        "src/core/CourseIdentityMatcher.js",
+        "src/core/GradingRuleEngine.js",
+        "src/core/GPAEngine.js",
+        "src/core/RequiredScoreEngine.js",
+        "src/core/GPATargetEngine.js",
+        "src/core/ForecastEngine.js",
+        "src/core/GPARescueEngine.js",
+        "src/core/ScenarioEngine.js",
+        "src/core/RiskEngine.js",
+        "src/core/SemesterSummaryEngine.js",
+        "src/core/TimelineEngine.js",
+        "src/core/ExportEngine.js",
+        "src/core/FutureSemesterEngine.js",
+        "src/core/DataProvenance.js",
+        "src/core/CurriculumProgressEngine.js",
+        "src/core/PlanCoverageEngine.js",
+        "src/core/CurriculumGapEngine.js",
+        "src/state/SimulationStore.js",
+        "src/state/selectors.js",
+        "src/ui/CompanionBar.js",
+        "src/ui/CourseSimulationPanel.js",
+        "src/ui/AppController.js",
+        "content.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "homepage_url": "https://iuh.edu.vn",
+  "host_permissions": [
+    "https://sv.iuh.edu.vn/*"
+  ]
+}

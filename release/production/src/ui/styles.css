@@ -1,0 +1,2233 @@
+/**
+ * styles.css — Design System IUH Scoped Styles
+ *
+ * Tuân thủ nghiêm ngặt docs/DESIGN_SYSTEM_IUH.md
+ * Tất cả selector đều được namespace dưới .iuh-gpa-* hoặc #iuh-gpa-*
+ * KHÔNG sử dụng global selector như body, table, button, tr, td
+ */
+
+:root {
+  --iuh-gpa-sticky-top: 0px;
+  --iuh-gpa-compact-bar-height: 64px;
+  --iuh-gpa-collapsed-bar-height: 52px;
+  --iuh-primary: #153898;
+  --iuh-primary-hover: #0d266e;
+  --iuh-amber: #F9B200;
+  --iuh-amber-light: #FFFBEB;
+  --iuh-amber-border: #FDE68A;
+  --iuh-amber-text: #B45309;
+  --iuh-bg: #F3F7F9;
+  --iuh-surface: #FFFFFF;
+  --iuh-border: #E2E8F0;
+  --iuh-border-dark: #CBD5E1;
+  --iuh-text: #1E293B;
+  --iuh-text-muted: #64748B;
+  --iuh-success: #059669;
+  --iuh-success-bg: #ECFDF5;
+  --iuh-danger: #DC2626;
+  --iuh-danger-bg: #FEF2F2;
+  --iuh-focus-ring: rgba(21, 56, 152, 0.35);
+  --iuh-radius: 6px;
+  --iuh-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ================= COMPANION BAR (STICKY DƯỚI NAVBAR IUH) ================= */
+#iuh-gpa-companion-bar {
+  position: sticky;
+  top: var(--iuh-gpa-navbar-height, var(--iuh-gpa-sticky-top, 0px));
+  z-index: 950 !important;
+  isolation: isolate;
+  margin: 12px 0;
+  background: #FFFFFF !important;
+  border: 1px solid var(--iuh-border);
+  border-top: 4px solid var(--iuh-primary);
+  border-radius: var(--iuh-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  font-family: var(--iuh-font);
+  color: var(--iuh-text);
+  padding: 12px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+  max-height: calc(100dvh - var(--iuh-gpa-navbar-height, var(--iuh-gpa-sticky-top, 0px)) - 8px);
+  box-sizing: border-box;
+}
+
+#iuh-gpa-companion-bar.iuh-gpa-collapsed {
+  max-height: none;
+  overflow: visible;
+  padding: 10px 18px;
+  gap: 0;
+}
+
+#iuh-gpa-companion-bar.iuh-gpa-collapsed .iuh-gpa-bar-header {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+#iuh-gpa-companion-bar.iuh-gpa-collapsed .iuh-gpa-collapsible-body {
+  display: none !important;
+}
+
+.iuh-gpa-collapsible-body {
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior-y: contain;
+  scrollbar-gutter: stable;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-right: 4px;
+}
+
+.iuh-gpa-btn-collapse svg {
+  transition: transform 0.2s ease;
+}
+
+#iuh-gpa-companion-bar.iuh-gpa-collapsed .iuh-gpa-btn-collapse svg {
+  transform: rotate(-90deg);
+}
+
+.iuh-gpa-bar-header {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-bottom: 1px solid var(--iuh-border);
+  padding-bottom: 10px;
+}
+
+.iuh-gpa-tab-nav {
+  flex: 0 0 auto;
+}
+
+.iuh-gpa-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.iuh-gpa-logo-pill {
+  background: var(--iuh-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.iuh-gpa-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--iuh-primary);
+  margin: 0;
+}
+
+.iuh-gpa-status-badge {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 12px;
+  border: 1px solid var(--iuh-border);
+  background: var(--iuh-bg);
+  color: var(--iuh-text-muted);
+}
+
+.iuh-gpa-status-badge.active {
+  background: var(--iuh-amber-light);
+  border-color: var(--iuh-amber-border);
+  color: var(--iuh-amber-text);
+  font-weight: 600;
+}
+
+.iuh-gpa-summary-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.iuh-gpa-metric-card {
+  background: var(--iuh-bg);
+  padding: 10px 14px;
+  border-radius: 4px;
+  border-left: 3px solid var(--iuh-primary);
+}
+
+.iuh-gpa-metric-label {
+  font-size: 12px;
+  color: var(--iuh-text-muted);
+  margin-bottom: 4px;
+}
+
+.iuh-gpa-metric-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--iuh-primary);
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.iuh-gpa-delta-pill {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.iuh-gpa-delta-up {
+  background: var(--iuh-success-bg);
+  color: var(--iuh-success);
+}
+
+.iuh-gpa-delta-down {
+  background: var(--iuh-danger-bg);
+  color: var(--iuh-danger);
+}
+
+.iuh-gpa-bar-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--iuh-text-muted);
+}
+
+.iuh-gpa-btn-reset-all {
+  background: #FFF;
+  border: 1px solid var(--iuh-border-dark);
+  color: var(--iuh-text);
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.iuh-gpa-btn-reset-all:hover:not(:disabled) {
+  background: var(--iuh-bg);
+  border-color: var(--iuh-primary);
+  color: var(--iuh-primary);
+}
+
+.iuh-gpa-btn-reset-all:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ================= NÚT MÔ PHỎNG TRÊN TỪNG DÒNG MÔN ================= */
+.iuh-gpa-trigger-btn {
+  display: none !important;
+}
+
+.iuh-gpa-trigger-btn.simulating {
+  display: none !important;
+}
+
+/* Nút reset học kỳ */
+.iuh-gpa-btn-reset-sem {
+  background: transparent;
+  color: var(--iuh-primary);
+  border: 1px dashed var(--iuh-border-dark);
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 12px;
+}
+
+.iuh-gpa-btn-reset-sem:hover {
+  background: #fff;
+  border-color: var(--iuh-primary);
+}
+
+/* ================= PANEL MÔ PHỎNG CỤC BỘ DƯỚI DÒNG MÔN ================= */
+.iuh-gpa-course-panel-row {
+  background: #FAFBFD !important;
+}
+
+.iuh-gpa-course-panel-cell {
+  padding: 16px 20px !important;
+  text-align: left !important;
+  border-left: 4px solid var(--iuh-primary) !important;
+  border-right: 1px solid var(--iuh-border) !important;
+  border-bottom: 2px solid var(--iuh-border-dark) !important;
+}
+
+.iuh-gpa-panel {
+  font-family: var(--iuh-font);
+  color: var(--iuh-text);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.iuh-gpa-panel-title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.iuh-gpa-panel-course-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.iuh-gpa-panel-course-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--iuh-primary);
+}
+
+.iuh-gpa-panel-rule-tag {
+  font-size: 11px;
+  color: var(--iuh-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.iuh-gpa-panel-rule-badge {
+  background: #EFF6FF;
+  color: #1E40AF;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+/* Simulator controls */
+.iuh-gpa-sim-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  background: var(--iuh-surface);
+  border: 1px solid var(--iuh-border);
+  border-radius: var(--iuh-radius);
+  padding: 14px 16px;
+}
+
+@media (max-width: 768px) {
+  .iuh-gpa-sim-controls {
+    grid-template-columns: 1fr;
+  }
+}
+
+.iuh-gpa-control-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.iuh-gpa-section-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--iuh-text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.iuh-gpa-orig-tag {
+  font-size: 11px;
+  color: var(--iuh-text-muted);
+  font-weight: normal;
+}
+
+.iuh-gpa-slider-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.iuh-gpa-range-slider {
+  flex: 1;
+  height: 6px;
+  accent-color: var(--iuh-primary);
+  cursor: pointer;
+}
+
+.iuh-gpa-number-input {
+  width: 64px;
+  padding: 4px 6px;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--iuh-primary);
+  border: 1px solid var(--iuh-border-dark);
+  border-radius: 4px;
+  outline: none;
+}
+
+.iuh-gpa-number-input:focus {
+  border-color: var(--iuh-primary);
+  box-shadow: 0 0 0 2px var(--iuh-focus-ring);
+}
+
+/* Outcome stats */
+.iuh-gpa-outcome-box {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  background: var(--iuh-bg);
+  border-radius: 4px;
+  padding: 10px;
+  text-align: center;
+}
+
+.iuh-gpa-stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.iuh-gpa-stat-label {
+  font-size: 10px;
+  color: var(--iuh-text-muted);
+  text-transform: uppercase;
+}
+
+.iuh-gpa-stat-val {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--iuh-text);
+}
+
+.iuh-gpa-stat-val.simulated {
+  color: var(--iuh-amber-text);
+}
+
+/* Target threshold table */
+.iuh-gpa-targets-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.iuh-gpa-targets-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  background: var(--iuh-surface);
+  border: 1px solid var(--iuh-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.iuh-gpa-targets-table th,
+.iuh-gpa-targets-table td {
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--iuh-border);
+  text-align: left;
+}
+
+.iuh-gpa-targets-table th {
+  background: var(--iuh-bg);
+  font-weight: 600;
+  color: var(--iuh-text-muted);
+}
+
+.iuh-gpa-badge-target {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.iuh-gpa-badge-achieved {
+  background: var(--iuh-success-bg);
+  color: var(--iuh-success);
+}
+
+.iuh-gpa-badge-need {
+  background: #EFF6FF;
+  color: #1D4ED8;
+}
+
+.iuh-gpa-badge-min-final {
+  background: var(--iuh-amber-light);
+  color: var(--iuh-amber-text);
+  border: 1px solid var(--iuh-amber-border);
+}
+
+.iuh-gpa-badge-impossible {
+  background: var(--iuh-danger-bg);
+  color: var(--iuh-danger);
+}
+
+/* Grade boundary message */
+.iuh-gpa-boundary-banner {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-left: 3px solid var(--iuh-amber);
+  padding: 8px 12px;
+  font-size: 12px;
+  border-radius: 4px;
+  color: var(--iuh-text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Footer actions */
+.iuh-gpa-panel-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.iuh-gpa-btn-revert {
+  background: transparent;
+  color: var(--iuh-danger);
+  border: 1px solid #FECACA;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.iuh-gpa-btn-revert:hover {
+  background: #FEE2E2;
+}
+
+.iuh-gpa-btn-close {
+  background: #F1F5F9;
+  color: var(--iuh-text);
+  border: 1px solid var(--iuh-border-dark);
+  padding: 5px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.iuh-gpa-btn-close:hover {
+  background: #E2E8F0;
+}
+
+/* ================= PHASE 4: TABS & SUBPANELS ================= */
+.iuh-gpa-tab-nav {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid var(--iuh-border);
+  padding-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.iuh-gpa-tab-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom: 2px solid transparent;
+  color: var(--iuh-text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  cursor: pointer;
+  border-radius: var(--iuh-radius) var(--iuh-radius) 0 0;
+  transition: all 0.15s ease;
+}
+
+.iuh-gpa-tab-btn:hover {
+  color: var(--iuh-primary);
+  background: var(--iuh-bg);
+}
+
+.iuh-gpa-tab-btn.active {
+  color: var(--iuh-primary);
+  border-bottom-color: var(--iuh-primary);
+  background: var(--iuh-bg);
+}
+
+.iuh-gpa-tab-panel {
+  display: none;
+}
+
+.iuh-gpa-tab-panel.active {
+  display: block;
+}
+
+.iuh-gpa-subpanel-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 4px 0;
+}
+
+.iuh-gpa-panel-intro {
+  font-size: 13px;
+  color: var(--iuh-text-muted);
+}
+
+/* Target Planner Grid */
+.iuh-gpa-target-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.iuh-gpa-target-current-card {
+  background: var(--iuh-bg);
+  padding: 10px 14px;
+  border-radius: var(--iuh-radius);
+  border: 1px solid var(--iuh-border);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.iuh-gpa-target-cur-text {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--iuh-primary);
+  margin-top: 4px;
+}
+
+.iuh-gpa-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.iuh-gpa-input-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--iuh-text);
+}
+
+.iuh-gpa-form-control {
+  padding: 6px 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--iuh-text);
+  border: 1px solid var(--iuh-border-dark);
+  border-radius: var(--iuh-radius);
+  background: #FFF;
+  outline: none;
+}
+
+.iuh-gpa-form-control:focus {
+  border-color: var(--iuh-primary);
+  box-shadow: 0 0 0 2px var(--iuh-focus-ring);
+}
+
+.iuh-gpa-presets-group {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+
+.iuh-gpa-preset-btn {
+  background: var(--iuh-bg);
+  border: 1px solid var(--iuh-border);
+  color: var(--iuh-text-muted);
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.iuh-gpa-preset-btn:hover {
+  background: #EBF5FF;
+  border-color: var(--iuh-primary);
+  color: var(--iuh-primary);
+}
+
+/* Result Cards */
+.iuh-gpa-result-card {
+  background: #FAFBFD;
+  border: 1px solid var(--iuh-border);
+  border-left: 4px solid var(--iuh-primary);
+  border-radius: var(--iuh-radius);
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.iuh-gpa-result-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--iuh-text-muted);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.iuh-gpa-result-main {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--iuh-primary);
+}
+
+.iuh-gpa-result-main.text-success {
+  color: var(--iuh-success);
+}
+
+.iuh-gpa-result-main.text-danger {
+  color: var(--iuh-danger);
+}
+
+.iuh-gpa-difficulty-badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  width: fit-content;
+  background: var(--iuh-bg);
+  color: var(--iuh-text-muted);
+}
+
+.iuh-gpa-difficulty-badge.badge-achievable {
+  background: #EFF6FF;
+  color: var(--iuh-primary);
+  border: 1px solid #BFDBFE;
+}
+
+.iuh-gpa-difficulty-badge.badge-met {
+  background: var(--iuh-success-bg);
+  color: var(--iuh-success);
+  border: 1px solid #A7F3D0;
+}
+
+.iuh-gpa-difficulty-badge.badge-impossible {
+  background: var(--iuh-danger-bg);
+  color: var(--iuh-danger);
+  border: 1px solid #FECACA;
+}
+
+.iuh-gpa-result-notice {
+  font-size: 12px;
+  color: var(--iuh-text-muted);
+}
+
+.iuh-gpa-disclaimer-note {
+  font-size: 11px;
+  color: var(--iuh-text-muted);
+  font-style: italic;
+}
+
+/* Forecast Panel */
+.iuh-gpa-forecast-controls {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  background: #FAFBFD;
+  border: 1px solid var(--iuh-border);
+  border-radius: var(--iuh-radius);
+  padding: 14px 16px;
+}
+
+@media (max-width: 768px) {
+  .iuh-gpa-forecast-controls {
+    grid-template-columns: 1fr;
+  }
+}
+
+.iuh-gpa-forecast-slider-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.iuh-gpa-forecast-proj-card {
+  background: var(--iuh-surface);
+  border: 1px solid var(--iuh-border);
+  border-radius: var(--iuh-radius);
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.iuh-gpa-forecast-rank-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--iuh-primary);
+}
+
+.iuh-gpa-table-wrapper {
+  overflow-x: auto;
+}
+
+/* Rescue Panel */
+.iuh-gpa-rescue-target-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.iuh-gpa-pill-btn {
+  background: var(--iuh-bg);
+  border: 1px solid var(--iuh-border);
+  color: var(--iuh-text);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.iuh-gpa-pill-btn:hover {
+  border-color: var(--iuh-primary);
+  color: var(--iuh-primary);
+}
+
+.iuh-gpa-pill-btn.active {
+  background: var(--iuh-primary);
+  border-color: var(--iuh-primary);
+  color: #fff;
+}
+
+.iuh-gpa-rescue-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.iuh-gpa-rescue-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--iuh-surface);
+  border: 1px solid var(--iuh-border);
+  border-radius: var(--iuh-radius);
+  padding: 10px 14px;
+  transition: border-color 0.15s ease;
+}
+
+.iuh-gpa-rescue-item:hover {
+  border-color: var(--iuh-primary);
+}
+
+.iuh-gpa-rescue-rank {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--iuh-primary);
+  background: #EBF5FF;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.iuh-gpa-rescue-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.iuh-gpa-rescue-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--iuh-text);
+}
+
+.iuh-gpa-rescue-detail {
+  font-size: 11px;
+  color: var(--iuh-text-muted);
+}
+
+.iuh-gpa-rescue-delta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.iuh-gpa-rescue-new-gpa {
+  font-size: 11px;
+  color: var(--iuh-text-muted);
+}
+
+.iuh-gpa-retake-disclaimer {
+  background: var(--iuh-amber-light);
+  border: 1px solid var(--iuh-amber-border);
+  border-left: 3px solid var(--iuh-amber);
+  color: var(--iuh-amber-text);
+  font-size: 11px;
+  line-height: 1.5;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.iuh-gpa-empty-notice {
+  font-size: 13px;
+  color: var(--iuh-text-muted);
+  text-align: center;
+  padding: 16px;
+  background: var(--iuh-bg);
+  border-radius: var(--iuh-radius);
+}
+
+/* ================= PHASE 5: SVG TAB ICONS ================= */
+.iuh-gpa-tab-icon {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* ================= PHASE 5: SCENARIO MANAGEMENT ================= */
+.iuh-gpa-scenario-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: var(--iuh-bg);
+  border: 1px solid var(--iuh-border);
+  padding: 10px 14px;
+  border-radius: var(--iuh-radius);
+}
+
+.iuh-gpa-scenario-selector-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.iuh-gpa-scenario-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.iuh-gpa-btn-action {
+  background: var(--iuh-surface);
+  border: 1px solid var(--iuh-border);
+  color: var(--iuh-text);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: var(--iuh-radius);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.iuh-gpa-btn-action:hover:not(:disabled) {
+  border-color: var(--iuh-primary);
+  color: var(--iuh-primary);
+}
+
+.iuh-gpa-btn-action:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.iuh-gpa-btn-action.btn-danger:hover:not(:disabled) {
+  border-color: var(--iuh-danger);
+  color: var(--iuh-danger);
+}
+
+.iuh-gpa-row-baseline {
+  background: #F8FAFC;
+  font-style: italic;
+}
+
+/* ================= PHASE 5 & 6A.2: COMPACT SVG TIMELINE CHART ================= */
+.iuh-gpa-timeline-compact-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.iuh-gpa-timeline-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-bottom: 4px;
+}
+
+.iuh-gpa-mode-toggle {
+  display: inline-flex;
+  background: #F1F5F9;
+  padding: 3px;
+  border-radius: 6px;
+  border: 1px solid var(--iuh-border);
+}
+
+.iuh-gpa-btn-mode {
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  color: var(--iuh-text-muted);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.iuh-gpa-btn-mode.active {
+  background: var(--iuh-primary);
+  color: #FFFFFF;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.iuh-gpa-timeline-legend {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  color: var(--iuh-text-muted);
+}
+
+.iuh-gpa-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.iuh-gpa-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.iuh-gpa-legend-dot.orig {
+  background: var(--iuh-primary);
+}
+
+.iuh-gpa-legend-dot.sim {
+  background: var(--iuh-amber);
+}
+
+.iuh-gpa-legend-badge {
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: #EEF2FF;
+  color: var(--iuh-primary);
+  border: 1px solid #C7D2FE;
+}
+
+.iuh-gpa-chart-wrapper {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  background: var(--iuh-surface);
+  border: 1px solid var(--iuh-border);
+  border-radius: var(--iuh-radius);
+  padding: 8px 12px;
+  box-sizing: border-box;
+}
+
+.iuh-gpa-timeline-chart-compact {
+  max-height: 240px;
+}
+
+.iuh-gpa-timeline-svg {
+  display: block;
+  width: 100%;
+  height: 210px;
+  max-height: 220px;
+  font-family: var(--iuh-font);
+}
+
+.iuh-gpa-timeline-tooltip {
+  position: absolute;
+  background: var(--iuh-surface);
+  border: 1px solid var(--iuh-border-dark);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  padding: 8px 12px;
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--iuh-text);
+  pointer-events: none;
+  z-index: 100;
+}
+
+.iuh-gpa-timeline-details {
+  border: 1px solid var(--iuh-border);
+  border-radius: 6px;
+  background: var(--iuh-surface);
+  padding: 6px 10px;
+}
+
+.iuh-gpa-details-summary {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--iuh-primary);
+  cursor: pointer;
+  outline: none;
+}
+
+.iuh-gpa-tr-latest {
+  background-color: rgba(21, 56, 152, 0.04);
+}
+
+.iuh-gpa-chart-line {
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.iuh-gpa-chart-line-orig {
+  stroke: var(--iuh-primary);
+}
+
+.iuh-gpa-chart-line-sim {
+  stroke: var(--iuh-amber);
+}
+
+.iuh-gpa-chart-point-orig {
+  fill: var(--iuh-primary);
+  cursor: pointer;
+}
+
+.iuh-gpa-chart-point-sim {
+  fill: var(--iuh-amber);
+  cursor: pointer;
+}
+
+.iuh-gpa-chart-axis-label {
+  font-size: 9.5px;
+  fill: var(--iuh-text-muted);
+}
+
+/* ================= PHASE 5: RISK / ATTENTION BANNER ================= */
+.iuh-gpa-risk-banner {
+  border-radius: var(--iuh-radius);
+  padding: 8px 12px;
+  border-left: 3px solid transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+}
+
+.iuh-gpa-risk-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.iuh-gpa-risk-title {
+  font-weight: 600;
+  color: var(--iuh-text);
+}
+
+.iuh-gpa-risk-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+.badge-safe {
+  background: var(--iuh-success-bg);
+  color: var(--iuh-success-text);
+  border: 1px solid var(--iuh-success-border);
+}
+
+.badge-watch {
+  background: var(--iuh-amber-light);
+  color: var(--iuh-amber-text);
+  border: 1px solid var(--iuh-amber-border);
+}
+
+.badge-risk {
+  background: #FFF7ED;
+  color: #C2410C;
+  border: 1px solid #FFEDD5;
+}
+
+.badge-critical {
+  background: #FEF2F2;
+  color: var(--iuh-danger);
+  border: 1px solid #FCA5A5;
+}
+
+.badge-unknown,
+.badge-completed,
+.badge-not_applicable {
+  background: var(--iuh-bg);
+  color: var(--iuh-text-muted);
+  border: 1px solid var(--iuh-border);
+}
+
+.iuh-gpa-risk-reason {
+  font-size: 11px;
+  color: var(--iuh-text);
+  line-height: 1.4;
+}
+
+.iuh-gpa-risk-disclaimer {
+  font-size: 10px;
+  color: var(--iuh-text-muted);
+  font-style: italic;
+}
+
+/* ================= PHASE 6A: HEADER ACTIONS & EXPORT ================= */
+.iuh-gpa-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.iuh-gpa-btn-export {
+  background: #EBF5FF;
+  border-color: #BFDBFE;
+  color: var(--iuh-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
+}
+
+.iuh-gpa-btn-export:hover {
+  background: var(--iuh-primary);
+  color: #fff;
+  border-color: var(--iuh-primary);
+}
+
+/* ================= PHASE 6A: PRIVACY PANEL ================= */
+.iuh-gpa-privacy-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.iuh-gpa-privacy-header {
+  border-bottom: 1px solid var(--iuh-border);
+  padding-bottom: 8px;
+}
+
+.iuh-gpa-privacy-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--iuh-primary);
+  margin-bottom: 4px;
+}
+
+.iuh-gpa-privacy-desc {
+  font-size: 12px;
+  color: var(--iuh-text-muted);
+  line-height: 1.5;
+}
+
+.iuh-gpa-privacy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.iuh-gpa-privacy-card {
+  background: var(--iuh-surface);
+  border: 1px solid var(--iuh-border);
+  border-radius: var(--iuh-radius);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.iuh-gpa-privacy-card-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--iuh-primary);
+}
+
+.iuh-gpa-privacy-card-desc {
+  font-size: 11px;
+  color: var(--iuh-text);
+  line-height: 1.45;
+}
+
+/* ================= IUH GRADE TABLE FULL HEIGHT EXPANSION ================= */
+/* Loại bỏ giới hạn chiều cao (max-height) và scrollbar dọc nội bộ của bảng điểm IUH */
+/* Duy trì nguyên vẹn thanh cuộn ngang (overflow-x: auto) cho bảng 27 cột */
+#viewBangDiem .table-wrapper,
+.table-wrapper.tbl-scrollable,
+.table-wrapper.iuh-gpa-expanded-grade-table,
+.table-wrapper.tbl-scrollable.iuh-gpa-expanded-grade-table,
+.table-wrapper.iuh-gpa-expanded-grade-table,
+.tbl-scrollable.iuh-gpa-expanded-grade-table,
+.iuh-gpa-expanded-grade-table {
+  position: relative !important;
+  z-index: 10 !important;
+  height: auto !important;
+  max-height: none !important;
+  min-height: 0 !important;
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+}
+
+/* ================= PHASE 6A.5.5: INNER COURSE NAME & CONTROL LAYOUT ================= */
+.iuh-gpa-header-name-layout {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.iuh-gpa-header-zone-select {
+  flex: 0 0 58px;
+  width: 58px;
+  text-align: center;
+  font-weight: 700;
+  border-right: 1px solid var(--iuh-border);
+  padding: 0 4px;
+  box-sizing: border-box;
+}
+
+.iuh-gpa-header-zone-type {
+  flex: 0 0 120px;
+  width: 120px;
+  text-align: center;
+  font-weight: 700;
+  border-right: 1px solid var(--iuh-border);
+  padding: 0 4px;
+  box-sizing: border-box;
+}
+
+.iuh-gpa-header-zone-name {
+  flex: 1 1 auto;
+  text-align: left;
+  padding-left: 8px;
+  box-sizing: border-box;
+}
+
+.iuh-gpa-course-name-layout {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 28px;
+}
+
+.iuh-gpa-cell-zone-select {
+  flex: 0 0 58px;
+  width: 58px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 0 4px;
+  box-sizing: border-box;
+}
+
+.iuh-gpa-cell-zone-type {
+  flex: 0 0 120px;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 0 4px;
+  box-sizing: border-box;
+  gap: 2px;
+}
+
+.iuh-gpa-course-official-name {
+  flex: 1 1 auto;
+  text-align: left;
+  padding-left: 8px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  box-sizing: border-box;
+}
+
+.iuh-gpa-course-type-select {
+  width: 110px !important;
+  max-width: 115px !important;
+  font-size: 11px !important;
+  padding: 2px 4px !important;
+  border-radius: 4px !important;
+}
+
+/* ================= PHASE 6A.5.5: IUH GRADE TABLE 5 STICKY COLUMNS STABILIZATION ================= */
+/* Cột 0: Chọn (width: 48px, left: 0px) */
+th.iuh-gpa-col-select,
+td.iuh-gpa-col-select,
+#xemDiem_aaa th.iuh-gpa-col-select,
+#xemDiem_aaa td.iuh-gpa-col-select {
+  left: 0px !important;
+  width: 48px !important;
+  min-width: 48px !important;
+  max-width: 48px !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+  z-index: 1000 !important;
+  background-color: #FFFFFF !important;
+}
+thead th.iuh-gpa-col-select,
+#xemDiem_aaa thead th.iuh-gpa-col-select {
+  z-index: 1002 !important;
+  background-color: #F3F7F9 !important;
+}
+
+/* Cột 1: Loại môn (width: 130px, left: 48px) */
+th.iuh-gpa-col-type,
+td.iuh-gpa-col-type,
+#xemDiem_aaa th.iuh-gpa-col-type,
+#xemDiem_aaa td.iuh-gpa-col-type {
+  left: 48px !important;
+  width: 130px !important;
+  min-width: 130px !important;
+  max-width: 130px !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+  z-index: 1000 !important;
+  background-color: #FFFFFF !important;
+}
+thead th.iuh-gpa-col-type,
+#xemDiem_aaa thead th.iuh-gpa-col-type {
+  z-index: 1002 !important;
+  background-color: #F3F7F9 !important;
+}
+
+/* Cột 2: STT - KHÔNG CỐ ĐỊNH (STATIC, trôi theo dòng chảy bảng) */
+th[lang="kqht-stt"],
+#xemDiem_aaa th[lang="kqht-stt"],
+#xemDiem_aaa tbody tr > td:nth-child(3) {
+  position: static !important;
+  left: auto !important;
+  width: 48px !important;
+  min-width: 48px !important;
+  max-width: 55px !important;
+  box-sizing: border-box !important;
+}
+
+/* Cột 3: Mã lớp học phần - KHÔNG CỐ ĐỊNH (STATIC, trôi theo dòng chảy bảng) */
+th[lang="kqht-malhp"],
+#xemDiem_aaa th[lang="kqht-malhp"],
+#xemDiem_aaa tbody tr > td:nth-child(4) {
+  position: static !important;
+  left: auto !important;
+  width: 140px !important;
+  min-width: 140px !important;
+  max-width: 150px !important;
+  box-sizing: border-box !important;
+}
+
+/* Cột 4: Tên môn học/học phần - CỐ ĐỊNH (STICKY left: 178px = 48 + 130) */
+th[lang="kqht-tenlhp"],
+#xemDiem_aaa th[lang="kqht-tenlhp"],
+td.iuh-gpa-col-course-name,
+#xemDiem_aaa td.iuh-gpa-col-course-name,
+#xemDiem_aaa tbody tr > td:nth-child(5) {
+  position: sticky !important;
+  left: 178px !important;
+  width: 240px !important;
+  min-width: 240px !important;
+  box-sizing: border-box !important;
+  z-index: 1000 !important;
+  background-color: #FFFFFF !important;
+}
+thead th[lang="kqht-tenlhp"],
+#xemDiem_aaa thead th[lang="kqht-tenlhp"] {
+  z-index: 1002 !important;
+  background-color: #F3F7F9 !important;
+}
+
+/* Cột 5: Số tín chỉ - CỐ ĐỊNH (STICKY left: 418px = 178 + 240) */
+th[lang="kqht-stc"],
+#xemDiem_aaa th[lang="kqht-stc"],
+td[title="SoTinChi"],
+#xemDiem_aaa td[title="SoTinChi"],
+td.iuh-gpa-col-credits,
+#xemDiem_aaa tbody tr > td:nth-child(6) {
+  position: sticky !important;
+  left: 418px !important;
+  width: 60px !important;
+  min-width: 60px !important;
+  max-width: 65px !important;
+  box-sizing: border-box !important;
+  z-index: 1000 !important;
+  background-color: #FFFFFF !important;
+}
+thead th[lang="kqht-stc"],
+#xemDiem_aaa thead th[lang="kqht-stc"] {
+  z-index: 1002 !important;
+  background-color: #F3F7F9 !important;
+}
+
+#xemDiem_aaa tbody tr:hover td.sticky-col {
+  background-color: #F8FAFC !important;
+}
+
+/* Simulated row: sticky cells keep yellow bg */
+tr.iuh-gpa-future-course-row .iuh-gpa-cell-select,
+tr.iuh-gpa-future-course-row .iuh-gpa-cell-type,
+tr.iuh-gpa-future-course-row .iuh-gpa-cell-name {
+  background: #FAFCFF;
+}
+
+/* ================= SEMESTER HEADER STICKY (INNER CONTAINER PATTERN) ================= */
+/* The semester td has full colspan, but the inner sticky content floats left */
+.iuh-gpa-semester-sticky-content {
+  position: sticky !important;
+  left: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 6px 14px !important;
+  background-color: #EBF2FF !important;
+  border-radius: 4px !important;
+  white-space: nowrap !important;
+  z-index: 8 !important;
+}
+
+/* ================= ADD SEMESTER ROW ================= */
+.iuh-gpa-add-semester-row {
+  background: #FAFBFD !important;
+  border-top: 1px dashed #BAE6FD !important;
+}
+
+.iuh-gpa-add-semester-inner {
+  position: sticky !important;
+  left: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 6px 14px !important;
+  background: #F8FAFD !important;
+  white-space: nowrap !important;
+  z-index: 8 !important;
+}
+
+.iuh-gpa-btn-add-semester {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #EBF5FF;
+  color: var(--iuh-primary);
+  border: 1px dashed #93C5FD;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.iuh-gpa-btn-add-semester:hover:not(:disabled) {
+  background: var(--iuh-primary);
+  color: #fff;
+  border-color: var(--iuh-primary);
+  border-style: solid;
+}
+
+.iuh-gpa-btn-add-semester:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-style: dashed;
+}
+
+/* ================= PHASE 6A.2: PRECISION TABLE CONTROLS & INLINE EDITOR ================= */
+
+.iuh-gpa-course-checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--iuh-primary);
+}
+
+.iuh-gpa-selection-override-badge {
+  display: none !important;
+}
+
+.iuh-gpa-course-checkbox.iuh-gpa-checkbox-overridden {
+  outline: 2px solid #D97706;
+  outline-offset: 1px;
+  border-radius: 2px;
+}
+
+.iuh-gpa-course-type-select.iuh-gpa-select-overridden {
+  border-color: #D97706 !important;
+  background-color: #FFFBEB !important;
+}
+
+
+
+.iuh-gpa-course-type-select {
+  font-size: 11px;
+  padding: 2px 4px;
+  border: 1px solid var(--iuh-border-dark);
+  border-radius: 4px;
+  background: var(--iuh-surface);
+  color: var(--iuh-text);
+  cursor: pointer;
+  outline: none;
+  max-width: 100px;
+}
+
+.iuh-gpa-course-type-select:focus {
+  border-color: var(--iuh-primary);
+  box-shadow: 0 0 0 2px var(--iuh-focus-ring);
+}
+
+.iuh-gpa-custom-type-badge {
+  display: block;
+  font-size: 8.5px;
+  font-weight: 700;
+  color: #B45309;
+  background: #FEF3C7;
+  padding: 1px 4px;
+  border-radius: 3px;
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+.iuh-gpa-btn-reset-type {
+  font-size: 9.5px;
+  padding: 1px 5px;
+  margin-top: 3px;
+  background: #FFFFFF;
+  color: var(--iuh-primary);
+  border: 1px solid var(--iuh-primary);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.iuh-gpa-btn-reset-type:hover {
+  background: #EEF2FF;
+}
+
+/* Inline Score Editor Cells */
+.iuh-gpa-editable-cell {
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  outline: none;
+}
+
+.iuh-gpa-editable-cell:hover {
+  background-color: rgba(21, 56, 152, 0.08) !important;
+}
+
+.iuh-gpa-editable-cell:focus-visible {
+  outline: 2px solid var(--iuh-primary);
+  outline-offset: -2px;
+}
+
+td.is-simulated-cell {
+  background-color: #FFF8E1 !important;
+  border: 1px solid #FFE082 !important;
+  color: #1e293b !important;
+  font-weight: 700 !important;
+}
+
+td.is-simulated-cell > .iuh-gpa-sim-val {
+  color: #1e293b !important;
+  font-weight: 700 !important;
+  white-space: nowrap;
+}
+
+.is-simulated-summary {
+  background-color: #FFF8E1 !important;
+  border: 1px solid #FFE082 !important;
+  border-radius: 3px;
+  padding: 1px 5px;
+  color: #B45309 !important;
+  font-weight: 700 !important;
+  display: inline-block;
+}
+
+.iuh-gpa-inline-input {
+  width: 44px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--iuh-primary);
+  background: #FFFFFF;
+  border: 2px solid var(--iuh-primary);
+  border-radius: 4px;
+  padding: 2px 0;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.iuh-gpa-sim-sub {
+  display: block;
+  font-size: 8.5px;
+  font-weight: 400;
+  color: #64748B;
+  line-height: 1;
+  margin-top: 1px;
+}
+
+.iuh-gpa-cell-invalid {
+  animation: iuhGpaShake 0.3s ease-in-out;
+  border: 2px solid var(--iuh-danger) !important;
+}
+
+@keyframes iuhGpaShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
+}
+
+/* CTK Sync Controls in Header */
+.iuh-gpa-ctk-sync-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.iuh-gpa-ctk-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 12px;
+  border: 1px solid var(--iuh-border);
+  transition: all 0.2s ease;
+}
+
+.iuh-gpa-ctk-badge.synced {
+  background: #ECFDF5;
+  color: #065F46;
+  border-color: #A7F3D0;
+}
+
+.iuh-gpa-ctk-badge.syncing {
+  background: #EFF6FF;
+  color: #1E40AF;
+  border-color: #BFDBFE;
+}
+
+.iuh-gpa-ctk-badge.unsynced {
+  background: #F1F5F9;
+  color: #475569;
+  border-color: #CBD5E1;
+}
+
+.iuh-gpa-ctk-badge.failed {
+  background: #FEF2F2;
+  color: #991B1B;
+  border-color: #FECACA;
+}
+
+.iuh-gpa-btn-ctk-refresh {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--iuh-surface);
+  border: 1px solid var(--iuh-border);
+  color: var(--iuh-text);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.iuh-gpa-btn-ctk-refresh:hover {
+  background: #F8FAFC;
+  border-color: var(--iuh-primary);
+  color: var(--iuh-primary);
+}
+
+/* Future Semester Planner Styles (Phase 6A.4) */
+.iuh-gpa-future-semester-row {
+  background: #F0F7FF !important;
+  border-top: 2px solid var(--iuh-primary) !important;
+  font-weight: 700;
+}
+
+.iuh-gpa-future-sem-title {
+  position: sticky !important;
+  left: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  padding: 6px 14px !important;
+  background-color: #EFF6FF !important;
+  white-space: nowrap !important;
+  z-index: 8 !important;
+}
+
+.iuh-gpa-future-sem-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.iuh-gpa-future-badge {
+  background: #FEF3C7;
+  color: #92400E;
+  border: 1px solid #FCD34D;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+}
+
+.iuh-gpa-future-sem-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.iuh-gpa-btn-future-action {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid var(--iuh-border);
+  background: var(--iuh-surface);
+  color: var(--iuh-text);
+  transition: all 0.15s ease;
+}
+
+.iuh-gpa-btn-future-action:hover {
+  background: #EFF6FF;
+  border-color: var(--iuh-primary);
+  color: var(--iuh-primary);
+}
+
+.iuh-gpa-btn-future-danger:hover {
+  background: #FEF2F2;
+  border-color: var(--iuh-danger);
+  color: var(--iuh-danger);
+}
+
+.iuh-gpa-future-course-row {
+  background: #FFFFFF !important;
+}
+
+.iuh-gpa-future-course-row:hover {
+  background: #F8FAFC !important;
+}
+
+.iuh-gpa-future-summary-row {
+  background: #F8FAFC !important;
+  border-top: 1px dashed var(--iuh-border) !important;
+  border-bottom: 2px solid var(--iuh-border) !important;
+  font-size: 12px;
+  color: var(--iuh-text);
+  padding: 6px 14px;
+}
+
+.iuh-gpa-ctk-badge-tag {
+  background: #E0E7FF;
+  color: #3730A3;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 3px;
+  margin-left: 4px;
+}
+
+/* Modal Picker & Real Dialog Overlay (Requirement 19-25) */
+.iuh-gpa-modal-backdrop,
+.iuh-gpa-modal-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(15, 23, 42, 0.6) !important;
+  backdrop-filter: blur(2px) !important;
+  -webkit-backdrop-filter: blur(2px) !important;
+  z-index: 100000 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 16px !important;
+  box-sizing: border-box !important;
+}
+
+.iuh-gpa-modal-dialog,
+.iuh-gpa-modal-card {
+  background: #FFFFFF !important;
+  border-radius: 12px !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.1) !important;
+  width: min(860px, calc(100vw - 32px)) !important;
+  max-height: min(760px, calc(100vh - 48px)) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  border: 1px solid #CBD5E1 !important;
+  font-family: var(--iuh-font) !important;
+  overflow: hidden !important;
+  position: relative !important;
+  z-index: 100001 !important;
+  animation: iuhGpaModalFadeIn 0.15s ease-out !important;
+}
+
+@keyframes iuhGpaModalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.iuh-gpa-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--iuh-border);
+}
+
+.iuh-gpa-modal-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--iuh-primary);
+  margin: 0;
+}
+
+.iuh-gpa-modal-close-btn {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  color: var(--iuh-text-muted);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.iuh-gpa-modal-body {
+  padding: 16px 18px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.iuh-gpa-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 12px 18px;
+  border-top: 1px solid var(--iuh-border);
+  background: #F8FAFC;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.iuh-gpa-picker-pool {
+  border: 1px solid var(--iuh-border);
+  border-radius: 6px;
+  max-height: 280px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.iuh-gpa-picker-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-bottom: 1px solid #F1F5F9;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.iuh-gpa-picker-item:hover {
+  background: #F8FAFC;
+}
+
+.iuh-gpa-picker-item.selected {
+  background: #EFF6FF;
+}
+
+.iuh-gpa-picker-item:last-child {
+  border-bottom: none;
+}
+
+.iuh-gpa-picker-type-help {
+  margin: 0 0 8px;
+  color: #475569;
+  font-size: 11px;
+}
+
+.iuh-gpa-picker-course-type {
+  flex: 0 0 170px;
+  max-width: 170px;
+  min-width: 0;
+  padding: 6px 8px;
+  border: 1px solid #CBD5E1;
+  border-radius: 5px;
+  background: #FFFFFF;
+  color: #1E293B;
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.iuh-gpa-picker-course-type:focus {
+  border-color: #2563EB;
+  outline: 2px solid rgba(37, 99, 235, 0.16);
+}
+
+.iuh-gpa-picker-course-type:disabled {
+  background: #F1F5F9;
+  color: #64748B;
+  cursor: not-allowed;
+}
+
+.iuh-gpa-picker-course-type:invalid {
+  color: #64748B;
+}
+
+.iuh-gpa-special-final-score {
+  min-width: 76px;
+  background: #FEF3C7 !important;
+  box-shadow: inset 0 0 0 2px #F59E0B;
+  color: #78350F !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+}
+
+.iuh-gpa-special-score-hint {
+  display: inline-block;
+  padding: 3px 6px;
+  border: 1px solid #F59E0B;
+  border-radius: 4px;
+  background: #FFFBEB;
+  color: #92400E;
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.iuh-gpa-special-final-score .iuh-gpa-special-final-input {
+  width: 58px !important;
+  min-height: 24px;
+  border: 2px solid #D97706 !important;
+  border-radius: 4px;
+  background: #FFFFFF;
+  color: #78350F;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .iuh-gpa-picker-item {
+    flex-wrap: wrap;
+  }
+
+  .iuh-gpa-picker-item > div {
+    min-width: 150px;
+  }
+
+  .iuh-gpa-picker-course-type {
+    flex: 1 1 150px;
+    max-width: none;
+  }
+}
+
+
+
+/* Table Header Offset: Managed via IUH's native CSS variable --var-diemno-height */
+:root,
+body,
+body.iuh-gpa-companion-mounted,
+body.iuh-gpa-companion-mounted.iuh-gpa-companion-collapsed,
+body.iuh-gpa-companion-mounted:not(.iuh-gpa-companion-collapsed) {
+  --var-diemno-height: 0px !important;
+}
+
+#xemDiem_aaa,
+table.freeze-table {
+  top: 0px !important;
+}
+
+/* Đảm bảo thead nằm cố định đúng trật tự đầu bảng, không trôi lơ lửng đè lên tbody khi thu gọn bar */
+#xemDiem_aaa thead.header-sticky,
+.freeze-table thead.header-sticky {
+  position: static !important;
+  top: auto !important;
+  z-index: 1001 !important;
+}
+
+#xemDiem_aaa thead.header-sticky th,
+.freeze-table thead.header-sticky th {
+  top: auto !important;
+}
+
+
+/* ================= PHASE 6A.5.3: SEMESTER SUMMARY ROWS (ACTUAL & FUTURE) ================= */
+.iuh-gpa-semester-summary-row {
+  background-color: #FFFFFF !important;
+}
+
+.iuh-gpa-semester-summary-host {
+  padding: 0 !important;
+  background-color: #FFFFFF !important;
+  border-bottom: 1px solid var(--iuh-border, #E5E7EB) !important;
+}
+
+.iuh-gpa-semester-summary-sticky {
+  position: sticky !important;
+  left: 0 !important;
+  z-index: 16 !important;
+  background-color: #FFFFFF !important;
+  width: fit-content;
+  max-width: calc(100vw - 32px);
+  padding: 4px 12px !important;
+  box-sizing: border-box;
+}
+
+.iuh-gpa-summary-pair {
+  display: grid !important;
+  grid-template-columns: minmax(280px, auto) minmax(300px, auto) !important;
+  gap: 24px !important;
+  align-items: center !important;
+  font-size: 11.5px !important;
+  line-height: 1.4 !important;
+}
+
+.iuh-gpa-summary-item {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 6px !important;
+  white-space: nowrap !important;
+}
+
+.iuh-gpa-summary-label {
+  color: #374151 !important;
+  font-weight: 500 !important;
+}
+
+.iuh-gpa-future-summary-value {
+  color: #153898 !important;
+  font-weight: 700 !important;
+}
+
+/* Disabled score cell styling */
+.iuh-gpa-score-disabled {
+  background-color: #F9FAFB !important;
+  color: #9CA3AF !important;
+  cursor: not-allowed !important;
+}
+
+
+/* ================= ACTUAL SUMMARY ROWS STICKY FIX ================= */
+.iuh-gpa-actual-summary-row {
+  background-color: #FFFFFF !important;
+}
+
+/* Cố định cột thống kê (Điểm TB, TC tích lũy...) không trôi ngang khi scroll */
+.iuh-gpa-actual-summary-cell-1 {
+  position: sticky !important;
+  left: 0 !important;
+  z-index: 10 !important;
+  background-color: #F8FAFC !important;
+  white-space: nowrap !important;
+  border-right: 1px solid #E5E7EB !important;
+}
+
+.iuh-gpa-actual-summary-cell-2 {
+  position: sticky !important;
+  left: 0 !important;
+  z-index: 10 !important;
+  background-color: #F8FAFC !important;
+  white-space: nowrap !important;
+}
+
+/* ================= TOAST NOTIFICATIONS ================= */
+.iuh-gpa-toast-container {
+  position: fixed !important;
+  top: calc(var(--iuh-gpa-navbar-height, var(--iuh-gpa-sticky-top, 0px)) + 16px) !important;
+  right: 20px !important;
+  z-index: 10000 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  pointer-events: none !important;
+}
+
+.iuh-gpa-toast {
+  pointer-events: auto !important;
+  min-width: 250px !important;
+  max-width: 420px !important;
+  padding: 10px 16px !important;
+  border-radius: 8px !important;
+  font-family: inherit !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15) !important;
+  transition: opacity 0.3s ease, transform 0.3s ease !important;
+  animation: iuhGpaToastIn 0.2s ease-out !important;
+  color: #1E293B !important;
+  background: #FFFFFF !important;
+  border-left: 4px solid #3B82F6 !important;
+}
+
+.iuh-gpa-toast-warning {
+  border-left-color: #F59E0B !important;
+  background: #FFFBEB !important;
+  color: #92400E !important;
+}
+
+.iuh-gpa-toast-error {
+  border-left-color: #EF4444 !important;
+  background: #FEF2F2 !important;
+  color: #991B1B !important;
+}
+
+.iuh-gpa-toast-success {
+  border-left-color: #10B981 !important;
+  background: #ECFDF5 !important;
+  color: #065F46 !important;
+}
+
+.iuh-gpa-toast-fadeout {
+  opacity: 0 !important;
+  transform: translateY(-8px) !important;
+}
+
+@keyframes iuhGpaToastIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.iuh-gpa-badge-override {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background-color: #FEF3C7;
+  color: #92400E;
+}
+
+.iuh-gpa-source-indicator {
+  font-size: 11.5px;
+  color: #64748B;
+  margin-top: 4px;
+}

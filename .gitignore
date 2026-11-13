@@ -1,0 +1,37 @@
+# Raw HTML snapshot chứa dữ liệu cá nhân sinh viên
+# KHÔNG được commit, bundle hay publish
+Kết quả học tập.html
+Kết quả học tập_files/
+Chương trình khung.html
+Chương trình khung_files/
+*.html.bak
+
+# Node / test artifacts
+node_modules/
+coverage/
+.nyc_output/
+
+# Build output
+dist/
+build/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/settings.json
+
+# Log files (không log transcript hay identifier)
+*.log
+npm-debug.log*
+
+# Local records and coursework unrelated to this extension. Keep local; do not publish.
+iuh_studyhub_data_admin_1791185580931.json
+TCC-20261003T161826Z-1-001.zip
+ilovepdf_pages-to-jpg.zip
+phu_luc_van_bang.pdf
+
+# Local investigation/load scripts for unrelated data or services.
+inspect_original.js
+loadtest.js

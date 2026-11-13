@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<!-- SANITIZED TEST FIXTURE - IUH GPA Tool
+     All data is FICTITIOUS. Real student data removed.
+     DOM structure mirrors IUH ket-qua-hoc-tap.html.
+     Stats: 10 semesters, 54 course rows,
+            40 summary rows (8 with / 2 without).
+     Edge cases included:
+       - Course #6: credits = 0
+       - Course #22: DiemThuongKy6-9 all have data
+       - Course #25: midterm = "0" (numeric zero, not missing)
+       - Course #34: Thuc tap (special type)
+       - Course #40: Khoa luan (special type, 9 credits)
+       - Course #52: finalExam < 3 (fail condition edge)
+       - Semesters HKH have no summary rows.
+-->
+<html lang="vi">
+<head><meta charset="UTF-8"><title>Fixture – Ket qua hoc tap (sanitized)</title></head>
+<body>
+<div class="wrapper"><div class="main-content">
+<div id="full-resize-table" class="container">
+<div id="contnet" class="main-section-content">
+<div class="box-df"><div class="portlet"><div class="portlet-body">
+<div id="viewBangDiem" class="main-wrapper">
+<div class="table-wrapper tbl-scrollable">
+<table id="xemDiem_aaa" class="table-custom table table-bordered text-center freeze-table"
+       width="100%" style="border-collapse:separate;">
+<thead class="header-sticky">
+<tr>
+  <th lang="kqht-stt" rowspan="3" style="min-width:48px">STT</th>
+  <th lang="kqht-malhp" rowspan="3" style="min-width:200px">Ma lop</th>
+  <th lang="kqht-tenlhp" rowspan="3" class="text-start sticky-col" style="min-width:200px">Ten mon</th>
+  <th lang="kqht-stc" rowspan="3" style="min-width:48px">So TC</th>
+  <th lang="kqht-qucd-row_1_2" rowspan="3" style="min-width:48px">Giua ky</th>
+  <th colspan="9">Thuong xuyen</th>
+  <th colspan="5">Thuc hanh</th>
+  <th lang="kqht-qucd-row_1_8" rowspan="3" style="min-width:48px">Cuoi ky</th>
+  <th lang="kqht-qucd-row_1_10" rowspan="3" style="min-width:48px">Diem TK</th>
+  <th lang="kqht-qucd-diemtinchi" rowspan="3" style="min-width:48px">He 4</th>
+  <th lang="kqht-qucd-diemchu" rowspan="3" style="min-width:48px">Chu</th>
+  <th lang="kqht-qucd-xeploai" rowspan="3" style="min-width:48px">Xep loai</th>
+  <th lang="kqht-qucd-ghichu" rowspan="3" style="min-width:48px">Ghi chu</th>
+  <th lang="kqht-qucd-diemtbquatrinh" rowspan="3" style="min-width:48px">TBQT</th>
+  <th lang="kqht-qucd-isdat" rowspan="3" style="min-width:48px">Dat</th>
+</tr>
+<tr>
+  <th colspan="9" data-root="0">LT He so 1</th>
+  <th lang="kqht-qucd-diemthuchanh1" rowspan="2" data-root="1" style="min-width:48px">1</th>
+  <th lang="kqht-qucd-diemthuchanh2" rowspan="2" data-root="1" style="min-width:48px">2</th>
+  <th lang="kqht-qucd-diemthuchanh3" rowspan="2" data-root="1" style="min-width:48px">3</th>
+  <th lang="kqht-qucd-diemthuchanh4" rowspan="2" data-root="1" style="min-width:48px">4</th>
+  <th lang="kqht-qucd-diemthuchanh5" rowspan="2" data-root="1" style="min-width:48px">5</th>
+</tr>
+<tr>
+  <th lang="kqht-qucd-diemheso11" data-root="1" style="min-width:48px">1</th>
+  <th lang="kqht-qucd-diemheso12" data-root="1" style="min-width:48px">2</th>
+  <th lang="kqht-qucd-diemheso13" data-root="1" style="min-width:48px">3</th>
+  <th lang="kqht-qucd-diemheso14" data-root="1" style="min-width:48px">4</th>
+  <th lang="kqht-qucd-diemheso15" data-root="1" style="min-width:48px">5</th>
+  <th lang="kqht-qucd-diemthuongky6" data-root="1" style="min-width:48px">6</th>
+  <th lang="kqht-qucd-diemthuongky7" data-root="1" style="min-width:48px">7</th>
+  <th lang="kqht-qucd-diemthuongky8" data-root="1" style="min-width:48px">8</th>
+  <th lang="kqht-qucd-diemthuongky9" data-root="1" style="min-width:48px">9</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="text-start row-head" colspan="27">HK1 (2020 - 2021)</td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td></tr>
+<tr>
+  <td>1</td><td><div>FAKE001_01</div></td>
+  <td class="text-start sticky-col">Toan giai tich A (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">7,0</td>
+  <td title="DiemHeSo11">8,0</td><td title="DiemHeSo12">7,5</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">6,5</td>
+  <td title="DiemTongKet">6,8</td>
+  <td title="DiemTinChi">3.0</td>
+  <td title="DiemChu">B</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>2</td><td><div>FAKE002_01</div></td>
+  <td class="text-start sticky-col">Vat ly dai cuong A (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">6,0</td>
+  <td title="DiemHeSo11">7,0</td><td title="DiemHeSo12">6,0</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1">7,0</td><td title="DiemThucHanh2">6,5</td><td title="DiemThucHanh3">7,0</td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">5,5</td>
+  <td title="DiemTongKet">6,3</td>
+  <td title="DiemTinChi">2.5</td>
+  <td title="DiemChu">C+</td>
+  <td title="XepLoai">Trung binh</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>3</td><td><div>FAKE003_01</div></td>
+  <td class="text-start sticky-col">Lap trinh co ban (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">8,5</td>
+  <td title="DiemHeSo11">9,0</td><td title="DiemHeSo12">8,5</td><td title="DiemHeSo13">8,0</td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1">9,0</td><td title="DiemThucHanh2">8,5</td><td title="DiemThucHanh3">9,0</td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">8,0</td>
+  <td title="DiemTongKet">8,5</td>
+  <td title="DiemTinChi">3.8</td>
+  <td title="DiemChu">A</td>
+  <td title="XepLoai">Gioi</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>4</td><td><div>FAKE004_01</div></td>
+  <td class="text-start sticky-col">Giao duc Quoc phong (Gia)</td>
+  <td>4</td>
+  <td title="DiemChuyenCan1"></td>
+  <td title="DiemHeSo11"></td><td title="DiemHeSo12"></td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">7,0</td>
+  <td title="DiemTongKet">7,0</td>
+  <td title="DiemTinChi">3.0</td>
+  <td title="DiemChu">B</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>5</td><td><div>FAKE005_01</div></td>
+  <td class="text-start sticky-col">Giao duc the chat 1 (Gia)</td>
+  <td>1</td>
+  <td title="DiemChuyenCan1"></td>
+  <td title="DiemHeSo11"></td><td title="DiemHeSo12"></td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1">8,0</td><td title="DiemThucHanh2">8,5</td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi"></td>
+  <td title="DiemTongKet">8,3</td>
+  <td title="DiemTinChi">3.8</td>
+  <td title="DiemChu">A</td>
+  <td title="XepLoai">Gioi</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>6</td><td><div>FAKE006_01</div></td>
+  <td class="text-start sticky-col">Chung chi Tieng Anh (Gia)</td>
+  <td>0</td>
+  <td title="DiemChuyenCan1"></td>
+  <td title="DiemHeSo11"></td><td title="DiemHeSo12"></td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">9,0</td>
+  <td title="DiemTongKet">9,0</td>
+  <td title="DiemTinChi">4.0</td>
+  <td title="DiemChu">A+</td>
+  <td title="XepLoai">Xuat sac</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-diemtbhocluc">x</span> <span>6,87</span></td><td colspan="2"><span lang="kqht-tkhk-diemtbtinchi">x</span> <span>2.95</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-diemtbhocluctichluy">x</span> <span>6,87</span></td><td colspan="2"><span lang="kqht-tkhk-diemtbtinchitichluy">x</span> <span>2.95</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-tongsotcdangky">x</span> <span>14</span></td><td colspan="2"><span lang="kqht-tkhk-sotctichluy">x</span> <span>10</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-stcdathocky">x</span> <span>10</span></td><td colspan="2"><span lang="kqht-tkhk-sotckhongdat">x</span> <span>0</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-xeploaihocluctichluy">x</span> <span>Trung binh</span></td><td colspan="2"><span lang="kqht-tkhk-xeploaihocluc">x</span> <span>Trung binh</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td class="text-start row-head" colspan="27">HK2 (2020 - 2021)</td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td></tr>
+<tr>
+  <td>7</td><td><div>FAKE007_01</div></td>
+  <td class="text-start sticky-col">Dai so tuyen tinh (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">7,5</td>
+  <td title="DiemHeSo11">8,0</td><td title="DiemHeSo12">7,0</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">7,0</td>
+  <td title="DiemTongKet">7,3</td>
+  <td title="DiemTinChi">3.0</td>
+  <td title="DiemChu">B</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>8</td><td><div>FAKE008_01</div></td>
+  <td class="text-start sticky-col">Lap trinh huong doi tuong (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">8,0</td>
+  <td title="DiemHeSo11">8,5</td><td title="DiemHeSo12">8,0</td><td title="DiemHeSo13">9,0</td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1">8,0</td><td title="DiemThucHanh2">9,0</td><td title="DiemThucHanh3">8,5</td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">8,5</td>
+  <td title="DiemTongKet">8,4</td>
+  <td title="DiemTinChi">3.5</td>
+  <td title="DiemChu">B+</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>9</td><td><div>FAKE009_01</div></td>
+  <td class="text-start sticky-col">Co so du lieu (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">6,5</td>
+  <td title="DiemHeSo11">7,0</td><td title="DiemHeSo12">6,5</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1">7,5</td><td title="DiemThucHanh2">7,0</td><td title="DiemThucHanh3">7,5</td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">6,0</td>
+  <td title="DiemTongKet">6,7</td>
+  <td title="DiemTinChi">3.0</td>
+  <td title="DiemChu">B</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>10</td><td><div>FAKE010_01</div></td>
+  <td class="text-start sticky-col">Tieng Anh 1 (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">7,0</td>
+  <td title="DiemHeSo11">8,0</td><td title="DiemHeSo12"></td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">6,5</td>
+  <td title="DiemTongKet">6,9</td>
+  <td title="DiemTinChi">3.0</td>
+  <td title="DiemChu">B</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>11</td><td><div>FAKE011_01</div></td>
+  <td class="text-start sticky-col">Ky nang mem (Gia)</td>
+  <td>2</td>
+  <td title="DiemChuyenCan1">9,0</td>
+  <td title="DiemHeSo11">9,5</td><td title="DiemHeSo12">9,0</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">9,0</td>
+  <td title="DiemTongKet">9,1</td>
+  <td title="DiemTinChi">4.0</td>
+  <td title="DiemChu">A+</td>
+  <td title="XepLoai">Xuat sac</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>12</td><td><div>FAKE012_01</div></td>
+  <td class="text-start sticky-col">Xac suat thong ke (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">5,0</td>
+  <td title="DiemHeSo11">6,0</td><td title="DiemHeSo12">5,5</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">2,5</td>
+  <td title="DiemTongKet">4,3</td>
+  <td title="DiemTinChi">1.0</td>
+  <td title="DiemChu">D</td>
+  <td title="XepLoai">Yeu</td>
+  <td title="GhiChu">Hoc lai</td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-diemtbhocluc">x</span> <span>7,13</span></td><td colspan="2"><span lang="kqht-tkhk-diemtbtinchi">x</span> <span>3.08</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-diemtbhocluctichluy">x</span> <span>7,01</span></td><td colspan="2"><span lang="kqht-tkhk-diemtbtinchitichluy">x</span> <span>3.02</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-tongsotcdangky">x</span> <span>17</span></td><td colspan="2"><span lang="kqht-tkhk-sotctichluy">x</span> <span>24</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-stcdathocky">x</span> <span>14</span></td><td colspan="2"><span lang="kqht-tkhk-sotckhongdat">x</span> <span>3</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-xeploaihocluctichluy">x</span> <span>Trung binh</span></td><td colspan="2"><span lang="kqht-tkhk-xeploaihocluc">x</span> <span>Kha</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td class="text-start row-head" colspan="27">HKH (2020 - 2021)</td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td></tr>
+<tr>
+  <td>13</td><td><div>FAKE013_01</div></td>
+  <td class="text-start sticky-col">Kien truc may tinh (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">7,0</td>
+  <td title="DiemHeSo11">7,5</td><td title="DiemHeSo12">7,0</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">7,5</td>
+  <td title="DiemTongKet">7,3</td>
+  <td title="DiemTinChi">3.0</td>
+  <td title="DiemChu">B</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>14</td><td><div>FAKE014_01</div></td>
+  <td class="text-start sticky-col">Mang may tinh (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">6,0</td>
+  <td title="DiemHeSo11">6,5</td><td title="DiemHeSo12"></td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">6,0</td>
+  <td title="DiemTongKet">6,1</td>
+  <td title="DiemTinChi">2.5</td>
+  <td title="DiemChu">C+</td>
+  <td title="XepLoai">Trung binh</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>15</td><td><div>FAKE015_01</div></td>
+  <td class="text-start sticky-col">He dieu hanh (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">8,0</td>
+  <td title="DiemHeSo11">8,5</td><td title="DiemHeSo12">8,0</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">8,0</td>
+  <td title="DiemTongKet">8,1</td>
+  <td title="DiemTinChi">3.5</td>
+  <td title="DiemChu">B+</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr><td class="text-start row-head" colspan="27">HK1 (2021 - 2022)</td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td></tr>
+<tr>
+  <td>16</td><td><div>FAKE016_01</div></td>
+  <td class="text-start sticky-col">Tri tue nhan tao (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">8,5</td>
+  <td title="DiemHeSo11">9,0</td><td title="DiemHeSo12">8,5</td><td title="DiemHeSo13">9,0</td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">9,0</td>
+  <td title="DiemTongKet">8,9</td>
+  <td title="DiemTinChi">3.8</td>
+  <td title="DiemChu">A</td>
+  <td title="XepLoai">Gioi</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>17</td><td><div>FAKE017_01</div></td>
+  <td class="text-start sticky-col">Machine Learning (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">7,0</td>
+  <td title="DiemHeSo11">7,5</td><td title="DiemHeSo12">7,0</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">7,5</td>
+  <td title="DiemTongKet">7,5</td>
+  <td title="DiemTinChi">3.5</td>
+  <td title="DiemChu">B+</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>18</td><td><div>FAKE018_01</div></td>
+  <td class="text-start sticky-col">Thi giac may tinh (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">8,0</td>
+  <td title="DiemHeSo11">8,5</td><td title="DiemHeSo12">8,0</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1">9,0</td><td title="DiemThucHanh2">8,5</td><td title="DiemThucHanh3">9,0</td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">8,5</td>
+  <td title="DiemTongKet">8,6</td>
+  <td title="DiemTinChi">3.8</td>
+  <td title="DiemChu">A</td>
+  <td title="XepLoai">Gioi</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>19</td><td><div>FAKE019_01</div></td>
+  <td class="text-start sticky-col">Xu ly ngon ngu tu nhien (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">6,5</td>
+  <td title="DiemHeSo11">7,0</td><td title="DiemHeSo12">6,5</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">6,0</td>
+  <td title="DiemTongKet">6,3</td>
+  <td title="DiemTinChi">2.5</td>
+  <td title="DiemChu">C+</td>
+  <td title="XepLoai">Trung binh</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>20</td><td><div>FAKE020_01</div></td>
+  <td class="text-start sticky-col">Tieng Anh 2 (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">7,5</td>
+  <td title="DiemHeSo11">8,0</td><td title="DiemHeSo12"></td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">7,0</td>
+  <td title="DiemTongKet">7,3</td>
+  <td title="DiemTinChi">3.0</td>
+  <td title="DiemChu">B</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>21</td><td><div>FAKE021_01</div></td>
+  <td class="text-start sticky-col">An toan thong tin (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">9,0</td>
+  <td title="DiemHeSo11">9,5</td><td title="DiemHeSo12">9,0</td><td title="DiemHeSo13">9,5</td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">9,5</td>
+  <td title="DiemTongKet">9,4</td>
+  <td title="DiemTinChi">4.0</td>
+  <td title="DiemChu">A+</td>
+  <td title="XepLoai">Xuat sac</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-diemtbhocluc">x</span> <span>8,00</span></td><td colspan="2"><span lang="kqht-tkhk-diemtbtinchi">x</span> <span>3.47</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-diemtbhocluctichluy">x</span> <span>7,43</span></td><td colspan="2"><span lang="kqht-tkhk-diemtbtinchitichluy">x</span> <span>3.20</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-tongsotcdangky">x</span> <span>18</span></td><td colspan="2"><span lang="kqht-tkhk-sotctichluy">x</span> <span>42</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-stcdathocky">x</span> <span>18</span></td><td colspan="2"><span lang="kqht-tkhk-sotckhongdat">x</span> <span>0</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-xeploaihocluctichluy">x</span> <span>Kha</span></td><td colspan="2"><span lang="kqht-tkhk-xeploaihocluc">x</span> <span>Gioi</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td class="text-start row-head" colspan="27">HK2 (2021 - 2022)</td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td></tr>
+<tr>
+  <td>22</td><td><div>FAKE022_01</div></td>
+  <td class="text-start sticky-col">Phat trien PM Agile (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">8,0</td>
+  <td title="DiemHeSo11">8,0</td><td title="DiemHeSo12">8,5</td><td title="DiemHeSo13">7,5</td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6">7,5</td><td title="DiemThuongKy7">8,0</td>
+  <td title="DiemThuongKy8">8,5</td><td title="DiemThuongKy9">7,0</td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">8,0</td>
+  <td title="DiemTongKet">8,1</td>
+  <td title="DiemTinChi">3.5</td>
+  <td title="DiemChu">B+</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>23</td><td><div>FAKE023_01</div></td>
+  <td class="text-start sticky-col">Kiem thu phan mem (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">7,5</td>
+  <td title="DiemHeSo11">8,0</td><td title="DiemHeSo12">7,5</td><td title="DiemHeSo13">8,0</td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1">8,5</td><td title="DiemThucHanh2">8,0</td><td title="DiemThucHanh3">8,5</td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">8,0</td>
+  <td title="DiemTongKet">8,2</td>
+  <td title="DiemTinChi">3.5</td>
+  <td title="DiemChu">B+</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>24</td><td><div>FAKE024_01</div></td>
+  <td class="text-start sticky-col">Cong nghe web (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">6,0</td>
+  <td title="DiemHeSo11">7,0</td><td title="DiemHeSo12">6,5</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1">7,0</td><td title="DiemThucHanh2">7,5</td><td title="DiemThucHanh3">7,0</td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">5,5</td>
+  <td title="DiemTongKet">6,5</td>
+  <td title="DiemTinChi">3.0</td>
+  <td title="DiemChu">B</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>25</td><td><div>FAKE025_01</div></td>
+  <td class="text-start sticky-col">Dien toan dam may (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">0</td>
+  <td title="DiemHeSo11">5,0</td><td title="DiemHeSo12">5,5</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">6,0</td>
+  <td title="DiemTongKet">4,5</td>
+  <td title="DiemTinChi">1.5</td>
+  <td title="DiemChu">D+</td>
+  <td title="XepLoai">TB Yeu</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>26</td><td><div>FAKE026_01</div></td>
+  <td class="text-start sticky-col">Do hoa may tinh (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">7,0</td>
+  <td title="DiemHeSo11">7,5</td><td title="DiemHeSo12">7,0</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1">8,0</td><td title="DiemThucHanh2">7,5</td><td title="DiemThucHanh3">8,0</td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">7,0</td>
+  <td title="DiemTongKet">7,4</td>
+  <td title="DiemTinChi">3.0</td>
+  <td title="DiemChu">B</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>27</td><td><div>FAKE027_01</div></td>
+  <td class="text-start sticky-col">Phan tich thiet ke HT (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">8,5</td>
+  <td title="DiemHeSo11">9,0</td><td title="DiemHeSo12">8,5</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">8,5</td>
+  <td title="DiemTongKet">8,6</td>
+  <td title="DiemTinChi">3.8</td>
+  <td title="DiemChu">A</td>
+  <td title="XepLoai">Gioi</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-diemtbhocluc">x</span> <span>7,55</span></td><td colspan="2"><span lang="kqht-tkhk-diemtbtinchi">x</span> <span>3.22</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-diemtbhocluctichluy">x</span> <span>7,55</span></td><td colspan="2"><span lang="kqht-tkhk-diemtbtinchitichluy">x</span> <span>3.26</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-tongsotcdangky">x</span> <span>18</span></td><td colspan="2"><span lang="kqht-tkhk-sotctichluy">x</span> <span>60</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-stcdathocky">x</span> <span>18</span></td><td colspan="2"><span lang="kqht-tkhk-sotckhongdat">x</span> <span>0</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-xeploaihocluctichluy">x</span> <span>Kha</span></td><td colspan="2"><span lang="kqht-tkhk-xeploaihocluc">x</span> <span>Kha</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td class="text-start row-head" colspan="27">HKH (2021 - 2022)</td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td></tr>
+<tr>
+  <td>28</td><td><div>FAKE028_01</div></td>
+  <td class="text-start sticky-col">IoT va He thong nhung (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">7,5</td>
+  <td title="DiemHeSo11">8,0</td><td title="DiemHeSo12">7,5</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1">8,0</td><td title="DiemThucHanh2">7,5</td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">7,0</td>
+  <td title="DiemTongKet">7,5</td>
+  <td title="DiemTinChi">3.5</td>
+  <td title="DiemChu">B+</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>29</td><td><div>FAKE029_01</div></td>
+  <td class="text-start sticky-col">Blockchain co ban (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">6,0</td>
+  <td title="DiemHeSo11">6,5</td><td title="DiemHeSo12">6,0</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">5,5</td>
+  <td title="DiemTongKet">5,8</td>
+  <td title="DiemTinChi">2.0</td>
+  <td title="DiemChu">C</td>
+  <td title="XepLoai">Trung binh</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>30</td><td><div>FAKE030_01</div></td>
+  <td class="text-start sticky-col">Quan tri du an CNTT (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">8,0</td>
+  <td title="DiemHeSo11">8,5</td><td title="DiemHeSo12">8,0</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">8,0</td>
+  <td title="DiemTongKet">8,1</td>
+  <td title="DiemTinChi">3.5</td>
+  <td title="DiemChu">B+</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr><td class="text-start row-head" colspan="27">HK1 (2022 - 2023)</td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td></tr>
+<tr>
+  <td>31</td><td><div>FAKE031_01</div></td>
+  <td class="text-start sticky-col">Phan tich du lieu lon (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">8,5</td>
+  <td title="DiemHeSo11">9,0</td><td title="DiemHeSo12">8,5</td><td title="DiemHeSo13">9,0</td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">8,5</td>
+  <td title="DiemTongKet">8,6</td>
+  <td title="DiemTinChi">3.8</td>
+  <td title="DiemChu">A</td>
+  <td title="XepLoai">Gioi</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>32</td><td><div>FAKE032_01</div></td>
+  <td class="text-start sticky-col">Khai pha du lieu (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">7,0</td>
+  <td title="DiemHeSo11">7,5</td><td title="DiemHeSo12">7,0</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">7,0</td>
+  <td title="DiemTongKet">7,1</td>
+  <td title="DiemTinChi">3.0</td>
+  <td title="DiemChu">B</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>33</td><td><div>FAKE033_01</div></td>
+  <td class="text-start sticky-col">Hoc sau (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">9,0</td>
+  <td title="DiemHeSo11">9,5</td><td title="DiemHeSo12">9,0</td><td title="DiemHeSo13">9,5</td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1">9,5</td><td title="DiemThucHanh2">9,0</td><td title="DiemThucHanh3">9,5</td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">9,0</td>
+  <td title="DiemTongKet">9,3</td>
+  <td title="DiemTinChi">4.0</td>
+  <td title="DiemChu">A+</td>
+  <td title="XepLoai">Xuat sac</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>34</td><td><div>FAKE034_01</div></td>
+  <td class="text-start sticky-col">Do an mon hoc (Gia - Thuc tap)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1"></td>
+  <td title="DiemHeSo11"></td><td title="DiemHeSo12"></td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">8,5</td>
+  <td title="DiemTongKet">8,5</td>
+  <td title="DiemTinChi">3.8</td>
+  <td title="DiemChu">A</td>
+  <td title="XepLoai">Gioi</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>35</td><td><div>FAKE035_01</div></td>
+  <td class="text-start sticky-col">Thiet ke UI UX (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">7,5</td>
+  <td title="DiemHeSo11">8,0</td><td title="DiemHeSo12">7,5</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1">8,5</td><td title="DiemThucHanh2">8,0</td><td title="DiemThucHanh3">8,5</td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">7,0</td>
+  <td title="DiemTongKet">7,8</td>
+  <td title="DiemTinChi">3.5</td>
+  <td title="DiemChu">B+</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>36</td><td><div>FAKE036_01</div></td>
+  <td class="text-start sticky-col">Phan tich HTTT (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">6,5</td>
+  <td title="DiemHeSo11">7,0</td><td title="DiemHeSo12">6,5</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">6,0</td>
+  <td title="DiemTongKet">6,3</td>
+  <td title="DiemTinChi">2.5</td>
+  <td title="DiemChu">C+</td>
+  <td title="XepLoai">Trung binh</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-diemtbhocluc">x</span> <span>7,93</span></td><td colspan="2"><span lang="kqht-tkhk-diemtbtinchi">x</span> <span>3.43</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-diemtbhocluctichluy">x</span> <span>7,68</span></td><td colspan="2"><span lang="kqht-tkhk-diemtbtinchitichluy">x</span> <span>3.29</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-tongsotcdangky">x</span> <span>18</span></td><td colspan="2"><span lang="kqht-tkhk-sotctichluy">x</span> <span>78</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-stcdathocky">x</span> <span>18</span></td><td colspan="2"><span lang="kqht-tkhk-sotckhongdat">x</span> <span>0</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-xeploaihocluctichluy">x</span> <span>Kha</span></td><td colspan="2"><span lang="kqht-tkhk-xeploaihocluc">x</span> <span>Gioi</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td class="text-start row-head" colspan="27">HK2 (2022 - 2023)</td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td></tr>
+<tr>
+  <td>37</td><td><div>FAKE037_01</div></td>
+  <td class="text-start sticky-col">Lap trinh di dong (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">8,0</td>
+  <td title="DiemHeSo11">8,5</td><td title="DiemHeSo12">8,0</td><td title="DiemHeSo13">8,5</td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1">9,0</td><td title="DiemThucHanh2">8,5</td><td title="DiemThucHanh3">9,0</td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">8,0</td>
+  <td title="DiemTongKet">8,4</td>
+  <td title="DiemTinChi">3.5</td>
+  <td title="DiemChu">B+</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>38</td><td><div>FAKE038_01</div></td>
+  <td class="text-start sticky-col">DevOps va CICD (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">7,5</td>
+  <td title="DiemHeSo11">8,0</td><td title="DiemHeSo12">7,5</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1">8,0</td><td title="DiemThucHanh2">7,5</td><td title="DiemThucHanh3">8,0</td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">7,5</td>
+  <td title="DiemTongKet">7,8</td>
+  <td title="DiemTinChi">3.5</td>
+  <td title="DiemChu">B+</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>39</td><td><div>FAKE039_01</div></td>
+  <td class="text-start sticky-col">Quan tri CSDL (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">6,0</td>
+  <td title="DiemHeSo11">6,5</td><td title="DiemHeSo12">6,0</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">5,5</td>
+  <td title="DiemTongKet">5,9</td>
+  <td title="DiemTinChi">2.5</td>
+  <td title="DiemChu">C+</td>
+  <td title="XepLoai">Trung binh</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>40</td><td><div>FAKE040_01</div></td>
+  <td class="text-start sticky-col">Khoa luan tot nghiep (Gia)</td>
+  <td>9</td>
+  <td title="DiemChuyenCan1"></td>
+  <td title="DiemHeSo11"></td><td title="DiemHeSo12"></td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">8,7</td>
+  <td title="DiemTongKet">8,7</td>
+  <td title="DiemTinChi">3.8</td>
+  <td title="DiemChu">A</td>
+  <td title="XepLoai">Gioi</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>41</td><td><div>FAKE041_01</div></td>
+  <td class="text-start sticky-col">Nhap mon Khoa hoc du lieu (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">8,5</td>
+  <td title="DiemHeSo11">9,0</td><td title="DiemHeSo12">8,5</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">9,0</td>
+  <td title="DiemTongKet">8,9</td>
+  <td title="DiemTinChi">3.8</td>
+  <td title="DiemChu">A</td>
+  <td title="XepLoai">Gioi</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>42</td><td><div>FAKE042_01</div></td>
+  <td class="text-start sticky-col">He thong phan tan (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">7,0</td>
+  <td title="DiemHeSo11">7,5</td><td title="DiemHeSo12">7,0</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">7,0</td>
+  <td title="DiemTongKet">7,1</td>
+  <td title="DiemTinChi">3.0</td>
+  <td title="DiemChu">B</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-diemtbhocluc">x</span> <span>8,03</span></td><td colspan="2"><span lang="kqht-tkhk-diemtbtinchi">x</span> <span>3.44</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-diemtbhocluctichluy">x</span> <span>7,79</span></td><td colspan="2"><span lang="kqht-tkhk-diemtbtinchitichluy">x</span> <span>3.33</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-tongsotcdangky">x</span> <span>24</span></td><td colspan="2"><span lang="kqht-tkhk-sotctichluy">x</span> <span>102</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-stcdathocky">x</span> <span>24</span></td><td colspan="2"><span lang="kqht-tkhk-sotckhongdat">x</span> <span>0</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-xeploaihocluctichluy">x</span> <span>Kha</span></td><td colspan="2"><span lang="kqht-tkhk-xeploaihocluc">x</span> <span>Gioi</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td class="text-start row-head" colspan="27">HK1 (2023 - 2024)</td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td></tr>
+<tr>
+  <td>43</td><td><div>FAKE043_01</div></td>
+  <td class="text-start sticky-col">Dao duc CNTT (Gia)</td>
+  <td>2</td>
+  <td title="DiemChuyenCan1">8,0</td>
+  <td title="DiemHeSo11">8,5</td><td title="DiemHeSo12">8,0</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">8,0</td>
+  <td title="DiemTongKet">8,1</td>
+  <td title="DiemTinChi">3.5</td>
+  <td title="DiemChu">B+</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>44</td><td><div>FAKE044_01</div></td>
+  <td class="text-start sticky-col">Khoi nghiep sang tao (Gia)</td>
+  <td>2</td>
+  <td title="DiemChuyenCan1">9,0</td>
+  <td title="DiemHeSo11">9,5</td><td title="DiemHeSo12">9,0</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">9,5</td>
+  <td title="DiemTongKet">9,4</td>
+  <td title="DiemTinChi">4.0</td>
+  <td title="DiemChu">A+</td>
+  <td title="XepLoai">Xuat sac</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>45</td><td><div>FAKE045_01</div></td>
+  <td class="text-start sticky-col">Kinh te vi mo (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">6,0</td>
+  <td title="DiemHeSo11">6,5</td><td title="DiemHeSo12">6,0</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">5,5</td>
+  <td title="DiemTongKet">5,8</td>
+  <td title="DiemTinChi">2.0</td>
+  <td title="DiemChu">C</td>
+  <td title="XepLoai">Trung binh</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>46</td><td><div>FAKE046_01</div></td>
+  <td class="text-start sticky-col">Phap luat dai cuong (Gia)</td>
+  <td>2</td>
+  <td title="DiemChuyenCan1">7,0</td>
+  <td title="DiemHeSo11">7,5</td><td title="DiemHeSo12">7,0</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">7,0</td>
+  <td title="DiemTongKet">7,1</td>
+  <td title="DiemTinChi">3.0</td>
+  <td title="DiemChu">B</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>47</td><td><div>FAKE047_01</div></td>
+  <td class="text-start sticky-col">Tu tuong HCM (Gia)</td>
+  <td>2</td>
+  <td title="DiemChuyenCan1">8,5</td>
+  <td title="DiemHeSo11">9,0</td><td title="DiemHeSo12">8,5</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">8,0</td>
+  <td title="DiemTongKet">8,2</td>
+  <td title="DiemTinChi">3.5</td>
+  <td title="DiemChu">B+</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>48</td><td><div>FAKE048_01</div></td>
+  <td class="text-start sticky-col">Ky thuat so (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">7,5</td>
+  <td title="DiemHeSo11">8,0</td><td title="DiemHeSo12">7,5</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1">8,0</td><td title="DiemThucHanh2">7,5</td><td title="DiemThucHanh3">8,0</td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">7,5</td>
+  <td title="DiemTongKet">7,7</td>
+  <td title="DiemTinChi">3.5</td>
+  <td title="DiemChu">B+</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-diemtbhocluc">x</span> <span>7,72</span></td><td colspan="2"><span lang="kqht-tkhk-diemtbtinchi">x</span> <span>3.29</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-diemtbhocluctichluy">x</span> <span>7,80</span></td><td colspan="2"><span lang="kqht-tkhk-diemtbtinchitichluy">x</span> <span>3.33</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-tongsotcdangky">x</span> <span>14</span></td><td colspan="2"><span lang="kqht-tkhk-sotctichluy">x</span> <span>116</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-stcdathocky">x</span> <span>14</span></td><td colspan="2"><span lang="kqht-tkhk-sotckhongdat">x</span> <span>0</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-xeploaihocluctichluy">x</span> <span>Kha</span></td><td colspan="2"><span lang="kqht-tkhk-xeploaihocluc">x</span> <span>Kha</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td class="text-start row-head" colspan="27">HK2 (2023 - 2024)</td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td><td class="hidden"></td></tr>
+<tr>
+  <td>49</td><td><div>FAKE049_01</div></td>
+  <td class="text-start sticky-col">Toi uu hoa (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">8,0</td>
+  <td title="DiemHeSo11">8,5</td><td title="DiemHeSo12">8,0</td><td title="DiemHeSo13">8,5</td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">8,0</td>
+  <td title="DiemTongKet">8,1</td>
+  <td title="DiemTinChi">3.5</td>
+  <td title="DiemChu">B+</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>50</td><td><div>FAKE050_01</div></td>
+  <td class="text-start sticky-col">Ly thuyet thong tin (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">7,0</td>
+  <td title="DiemHeSo11">7,5</td><td title="DiemHeSo12">7,0</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">7,0</td>
+  <td title="DiemTongKet">7,1</td>
+  <td title="DiemTinChi">3.0</td>
+  <td title="DiemChu">B</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>51</td><td><div>FAKE051_01</div></td>
+  <td class="text-start sticky-col">Bao mat mang (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">9,0</td>
+  <td title="DiemHeSo11">9,5</td><td title="DiemHeSo12">9,0</td><td title="DiemHeSo13">9,5</td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">9,0</td>
+  <td title="DiemTongKet">9,1</td>
+  <td title="DiemTinChi">4.0</td>
+  <td title="DiemChu">A+</td>
+  <td title="XepLoai">Xuat sac</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>52</td><td><div>FAKE052_01</div></td>
+  <td class="text-start sticky-col">Mon thi cuoi ky duoi 3 (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">9,0</td>
+  <td title="DiemHeSo11">9,0</td><td title="DiemHeSo12">9,0</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">2,5</td>
+  <td title="DiemTongKet">3,5</td>
+  <td title="DiemTinChi">0.0</td>
+  <td title="DiemChu">F</td>
+  <td title="XepLoai">Kem</td>
+  <td title="GhiChu">Diem liet</td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>53</td><td><div>FAKE053_01</div></td>
+  <td class="text-start sticky-col">Xu ly anh so (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1">7,5</td>
+  <td title="DiemHeSo11">8,0</td><td title="DiemHeSo12">7,5</td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1">8,0</td><td title="DiemThucHanh2">8,5</td><td title="DiemThucHanh3">8,0</td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">7,0</td>
+  <td title="DiemTongKet">7,6</td>
+  <td title="DiemTinChi">3.5</td>
+  <td title="DiemChu">B+</td>
+  <td title="XepLoai">Kha</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr>
+  <td>54</td><td><div>FAKE054_01</div></td>
+  <td class="text-start sticky-col">Thuc tap tot nghiep (Gia)</td>
+  <td>3</td>
+  <td title="DiemChuyenCan1"></td>
+  <td title="DiemHeSo11"></td><td title="DiemHeSo12"></td><td title="DiemHeSo13"></td>
+  <td title="DiemHeSo14"></td><td title="DiemHeSo15"></td>
+  <td title="DiemThuongKy6"></td><td title="DiemThuongKy7"></td>
+  <td title="DiemThuongKy8"></td><td title="DiemThuongKy9"></td>
+  <td title="DiemThucHanh1"></td><td title="DiemThucHanh2"></td><td title="DiemThucHanh3"></td>
+  <td title="DiemThucHanh4"></td><td title="DiemThucHanh5"></td>
+  <td title="DiemThi">9,0</td>
+  <td title="DiemTongKet">9,0</td>
+  <td title="DiemTinChi">4.0</td>
+  <td title="DiemChu">A+</td>
+  <td title="XepLoai">Xuat sac</td>
+  <td title="GhiChu"></td>
+  <td title="DiemTBQuaTrinh"></td>
+  <td><div class="check"></div></td>
+</tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-diemtbhocluc">x</span> <span>7,68</span></td><td colspan="2"><span lang="kqht-tkhk-diemtbtinchi">x</span> <span>3.26</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-diemtbhocluctichluy">x</span> <span>7,80</span></td><td colspan="2"><span lang="kqht-tkhk-diemtbtinchitichluy">x</span> <span>3.33</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-tongsotcdangky">x</span> <span>18</span></td><td colspan="2"><span lang="kqht-tkhk-sotctichluy">x</span> <span>134</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-stcdathocky">x</span> <span>15</span></td><td colspan="2"><span lang="kqht-tkhk-sotckhongdat">x</span> <span>3</span></td><td colspan="23" class="hidden"></td></tr>
+<tr><td colspan="2"><span lang="kqht-tkhk-xeploaihocluctichluy">x</span> <span>Kha</span></td><td colspan="2"><span lang="kqht-tkhk-xeploaihocluc">x</span> <span>Kha</span></td><td colspan="23" class="hidden"></td></tr>
+
+</tbody>
+</table>
+</div></div></div></div></div></div></div></div></div>
+</body></html>

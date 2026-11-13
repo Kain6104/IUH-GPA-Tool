@@ -1,0 +1,20 @@
+CHROME WEB STORE PRIVACY DISCLOSURE
+Extension Name: Tính Điểm IUH – Công Cụ Mô Phỏng Cho Sinh Viên
+Version: 1.1.1
+
+1. DATA COLLECTION & TRANSMISSION:
+- The extension does NOT collect, store, or transmit any student personal information (such as student ID, name, email, phone number, address, or password) to developer servers or any third-party servers.
+- The extension does NOT use any telemetry, analytics, tracking, or remote error reporting services.
+- All simulation computations, GPA targets, forecasts, and grade scenarios are computed locally in the user's browser memory.
+
+2. CURRICULUM SYNCHRONIZATION (CTK):
+- When synchronizing the student's curriculum (Chương trình khung), the browser makes a direct same-origin GET request to https://sv.iuh.edu.vn/chuong-trinh-khung.html using the student's active, authenticated browser session.
+- No login credentials, cookies, or auth tokens are read, intercepted, or persisted.
+- The retrieved curriculum is parsed locally in memory; no raw HTML is stored or uploaded.
+
+3. PERMISSIONS RATIONALE:
+- "storage": Used solely to persist non-sensitive user settings, specifically the extension's enabled/disabled toggle state (iuhGpaEnabled).
+- Host Permission "https://sv.iuh.edu.vn/*": Scoped strictly to the Industrial University of Ho Chi Minh City (IUH) student portal for content script injection on the grade results page and fetching the curriculum page.
+
+4. USER-INITIATED EXTERNAL NAVIGATION:
+- The popup contains an optional developer-credit link that opens a Facebook profile only when clicked by the user. This normal browser navigation may disclose standard connection/request metadata to Facebook; the extension does not attach or send grades, GPA, curriculum data, or simulation scenarios.

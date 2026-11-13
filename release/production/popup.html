@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IUH GPA Tool</title>
+  <style>
+    :root {
+      --iuh-primary: #153898;
+      --iuh-primary-light: #1E4ED8;
+      --iuh-primary-hover: #0E276F;
+      --iuh-primary-active: #0A1C52;
+      --iuh-primary-soft: #EFF6FF;
+      --iuh-primary-border: #BFDBFE;
+      --iuh-amber: #F9B200;
+      --iuh-amber-light: #FDE047;
+      --iuh-amber-soft: #FEF3C7;
+      --iuh-amber-text: #92400E;
+      --iuh-bg: #F8FAFC;
+      --iuh-surface: #FFFFFF;
+      --iuh-surface-hover: #F8FAFC;
+      --iuh-border: #E2E8F0;
+      --iuh-border-light: #F1F5F9;
+      --iuh-text: #0F172A;
+      --iuh-text-muted: #64748B;
+      --iuh-text-subtle: #94A3B8;
+      --iuh-success: #16A34A;
+      --iuh-success-soft: #DCFCE7;
+      --iuh-radius-xl: 14px;
+      --iuh-radius-lg: 12px;
+      --iuh-radius-md: 8px;
+      --iuh-radius-sm: 6px;
+      --iuh-shadow-subtle: 0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 1px 2px -1px rgba(15, 23, 42, 0.03);
+      --iuh-shadow-card: 0 4px 6px -1px rgba(15, 23, 42, 0.04), 0 2px 4px -2px rgba(15, 23, 42, 0.03);
+      --iuh-shadow-glow: 0 4px 14px 0 rgba(21, 56, 152, 0.22);
+      --iuh-transition: 160ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      width: 368px;
+      margin: 0;
+      padding: 16px;
+      background: var(--iuh-bg);
+      color: var(--iuh-text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 13px;
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      animation: popup-entrance 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes popup-entrance {
+      from {
+        opacity: 0;
+        transform: translateY(4px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Header Component */
+    .header {
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--iuh-border);
+    }
+
+    .header-main {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-logo-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--iuh-radius-lg);
+      background: #FFFFFF;
+      border: 1px solid var(--iuh-border);
+      box-shadow: 0 4px 10px rgba(21, 56, 152, 0.1), 0 1px 3px rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+      transition: transform var(--iuh-transition), box-shadow var(--iuh-transition);
+    }
+
+    .header-logo-wrap:hover {
+      transform: scale(1.08) rotate(-2deg);
+      box-shadow: 0 6px 16px rgba(21, 56, 152, 0.18);
+    }
+
+    .header-logo {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .header-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .header-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 3px;
+    }
+
+    .badge-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--iuh-primary);
+      background: var(--iuh-primary-soft);
+      border: 1px solid var(--iuh-primary-border);
+      padding: 1px 7px;
+      border-radius: var(--iuh-radius-sm);
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .header-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .indicator-dot-wrap {
+      position: relative;
+      width: 8px;
+      height: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .indicator-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color var(--iuh-transition), border-color var(--iuh-transition);
+      z-index: 2;
+    }
+
+    .indicator-dot.active {
+      background: var(--iuh-success);
+      box-shadow: 0 0 0 1.5px #FFFFFF;
+    }
+
+    .indicator-dot.inactive {
+      background: #FFFFFF;
+      border: 1.5px solid var(--iuh-text-subtle);
+    }
+
+    .indicator-pulse {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: var(--iuh-success);
+      opacity: 0.4;
+      animation: radar-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+      z-index: 1;
+      display: none;
+    }
+
+    .indicator-dot.active ~ .indicator-pulse {
+      display: block;
+    }
+
+    @keyframes radar-ping {
+      0% {
+        transform: scale(0.95);
+        opacity: 0.8;
+      }
+      70%, 100% {
+        transform: scale(2.8);
+        opacity: 0;
+      }
+    }
+
+    .indicator-text {
+      transition: color var(--iuh-transition);
+    }
+
+    .indicator-text.active {
+      color: var(--iuh-success);
+    }
+
+    .indicator-text.inactive {
+      color: var(--iuh-text-muted);
+    }
+
+    .header-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--iuh-text);
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    .header-subtitle {
+      font-size: 11px;
+      color: var(--iuh-text-muted);
+      margin-top: 1px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Surface Card Common */
+    .card {
+      background: var(--iuh-surface);
+      border: 1px solid var(--iuh-border);
+      border-radius: var(--iuh-radius-lg);
+      padding: 12px 14px;
+      box-shadow: var(--iuh-shadow-subtle);
+      margin-bottom: 10px;
+      transition: transform var(--iuh-transition), box-shadow var(--iuh-transition), border-color var(--iuh-transition), opacity var(--iuh-transition);
+    }
+
+    .card:hover {
+      border-color: #CBD5E1;
+    }
+
+    /* Toggle Card */
+    .toggle-card {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      background: #FFFFFF;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .toggle-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card-title-group {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .card-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--iuh-text);
+    }
+
+    .toggle-desc {
+      font-size: 11px;
+      color: var(--iuh-text-muted);
+      line-height: 1.35;
+      transition: color var(--iuh-transition);
+    }
+
+    /* Premium Switch Component */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 46px;
+      height: 26px;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      position: absolute;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #CBD5E1;
+      transition: background-color var(--iuh-transition), box-shadow var(--iuh-transition);
+      border-radius: 26px;
+      box-shadow: inset 0 1px 3px rgba(15, 23, 42, 0.15);
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 3px;
+      bottom: 3px;
+      background-color: #FFFFFF;
+      transition: transform 180ms cubic-bezier(0.34, 1.4, 0.64, 1), box-shadow var(--iuh-transition);
+      border-radius: 50%;
+      box-shadow: 0 2px 4px rgba(15, 23, 42, 0.2), 0 1px 2px rgba(15, 23, 42, 0.1);
+    }
+
+    .switch input:checked + .slider {
+      background-color: var(--iuh-primary);
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 10px rgba(21, 56, 152, 0.2);
+    }
+
+    .switch input:focus-visible + .slider {
+      outline: 2px solid var(--iuh-primary-light);
+      outline-offset: 2px;
+    }
+
+    .switch input:checked + .slider:before {
+      transform: translateX(20px);
+    }
+
+    /* Status Card */
+    .status-card {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 10px 13px;
+      background: #FFFFFF;
+      border: 1px solid var(--iuh-border);
+    }
+
+    .status-icon-wrap {
+      width: 30px;
+      height: 30px;
+      border-radius: var(--iuh-radius-md);
+      background: var(--iuh-primary-soft);
+      color: var(--iuh-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid var(--iuh-primary-border);
+      transition: transform var(--iuh-transition);
+    }
+
+    .status-card:hover .status-icon-wrap {
+      transform: scale(1.06);
+    }
+
+    .status-content {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      flex: 1;
+    }
+
+    .status-label {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--iuh-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .status-value {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--iuh-text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: color var(--iuh-transition);
+    }
+
+    .status-value.simulating {
+      color: var(--iuh-amber-text);
+    }
+
+    /* GPA Grid */
+    .gpa-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 12px;
+      transition: opacity var(--iuh-transition);
+    }
+
+    .gpa-grid.muted {
+      opacity: 0.55;
+    }
+
+    .gpa-card {
+      background: var(--iuh-surface);
+      border: 1px solid var(--iuh-border);
+      border-radius: var(--iuh-radius-lg);
+      padding: 11px 13px 12px 13px;
+      box-shadow: var(--iuh-shadow-subtle);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--iuh-transition), box-shadow var(--iuh-transition), border-color var(--iuh-transition);
+    }
+
+    .gpa-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--iuh-shadow-card);
+      border-color: #CBD5E1;
+    }
+
+    /* Top Accent Stripe */
+    .gpa-card-h4::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--iuh-primary), #2563EB);
+      border-radius: var(--iuh-radius-lg) var(--iuh-radius-lg) 0 0;
+    }
+
+    .gpa-card-h10::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--iuh-amber), #F59E0B);
+      border-radius: var(--iuh-radius-lg) var(--iuh-radius-lg) 0 0;
+    }
+
+    .gpa-card-label {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--iuh-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .gpa-card-val {
+      font-size: 21px;
+      font-weight: 700;
+      color: var(--iuh-primary);
+      margin-top: 3px;
+      font-variant-numeric: tabular-nums;
+      line-height: 1.2;
+      transition: color var(--iuh-transition);
+    }
+
+    .gpa-card-h10 .gpa-card-val {
+      color: #0F172A;
+    }
+
+    .gpa-grid.muted .gpa-card-val {
+      color: var(--iuh-text-subtle);
+    }
+
+    /* Action Buttons */
+    .actions-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .btn {
+      width: 100%;
+      height: 38px;
+      padding: 0 14px;
+      border-radius: var(--iuh-radius-md);
+      font-size: 12px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: transform var(--iuh-transition), background-color var(--iuh-transition), border-color var(--iuh-transition), color var(--iuh-transition), box-shadow var(--iuh-transition), opacity var(--iuh-transition);
+      user-select: none;
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--iuh-primary-light);
+      outline-offset: 2px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--iuh-primary) 0%, #1e45ba 100%);
+      color: #FFFFFF;
+      box-shadow: 0 2px 6px rgba(21, 56, 152, 0.22);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background: linear-gradient(135deg, var(--iuh-primary-hover) 0%, #173898 100%);
+      transform: translateY(-1px);
+      box-shadow: var(--iuh-shadow-glow);
+    }
+
+    .btn-primary:active:not(:disabled) {
+      background: var(--iuh-primary-active);
+      transform: scale(0.985);
+      box-shadow: 0 1px 3px rgba(21, 56, 152, 0.25);
+    }
+
+    .btn-secondary {
+      background: var(--iuh-surface);
+      border-color: var(--iuh-border);
+      color: var(--iuh-text);
+      box-shadow: var(--iuh-shadow-subtle);
+    }
+
+    .btn-secondary:hover:not(:disabled) {
+      border-color: var(--iuh-primary-border);
+      background: var(--iuh-primary-soft);
+      color: var(--iuh-primary);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary:active:not(:disabled) {
+      transform: scale(0.985);
+    }
+
+    .btn-secondary:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      border-color: var(--iuh-border-light);
+      background: var(--iuh-surface);
+      color: var(--iuh-text-subtle);
+      box-shadow: none;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--iuh-border);
+      padding-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      text-align: center;
+    }
+
+    .footer-privacy {
+      font-size: 11px;
+      color: var(--iuh-text-muted);
+      line-height: 1.35;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .footer-credit {
+      font-size: 11px;
+      color: var(--iuh-text);
+      line-height: 1.35;
+    }
+
+    .dev-link {
+      color: var(--iuh-primary);
+      font-weight: 700;
+      text-decoration: none;
+      padding: 1px 4px;
+      border-radius: var(--iuh-radius-sm);
+      transition: color var(--iuh-transition), background-color var(--iuh-transition), text-decoration var(--iuh-transition);
+    }
+
+    .dev-link:hover {
+      color: var(--iuh-primary-hover);
+      text-decoration: underline;
+      background-color: var(--iuh-primary-soft);
+    }
+
+    .dev-link:focus-visible {
+      outline: 2px solid var(--iuh-primary);
+      outline-offset: 1px;
+    }
+
+    .svg-icon {
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-main">
+      <div class="header-logo-wrap" title="IUH GPA Tool">
+        <img src="icons/iuh.png" alt="IUH GPA Tool Logo" class="header-logo" width="38" height="38">
+      </div>
+      <div class="header-info">
+        <div class="header-top-row">
+          <span class="badge-tag">IUH GPA TOOL</span>
+          <div class="header-indicator" id="header-indicator">
+            <span class="indicator-dot-wrap">
+              <span class="indicator-dot active" id="indicator-dot" aria-hidden="true"></span>
+              <span class="indicator-pulse" id="indicator-pulse" aria-hidden="true"></span>
+            </span>
+            <span class="indicator-text active" id="indicator-text">Đang hoạt động</span>
+          </div>
+        </div>
+        <h1 class="header-title">Tính Điểm IUH</h1>
+        <p class="header-subtitle">Trợ lý học tập &amp; mô phỏng GPA</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Toggle Card -->
+  <div class="card toggle-card">
+    <div class="toggle-header">
+      <div class="card-title-group">
+        <span class="card-title">Tiện ích</span>
+      </div>
+      <label class="switch" for="extension-toggle">
+        <input type="checkbox" id="extension-toggle" aria-label="Bật hoặc tắt IUH GPA Tool">
+        <span class="slider" aria-hidden="true"></span>
+      </label>
+    </div>
+    <p id="toggle-desc" class="toggle-desc">Đang hoạt động trên trang Kết quả học tập</p>
+  </div>
+
+  <!-- Status Card -->
+  <div class="card status-card">
+    <div class="status-icon-wrap" aria-hidden="true">
+      <svg class="svg-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="16" x2="12" y2="12"></line>
+        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+      </svg>
+    </div>
+    <div class="status-content">
+      <span class="status-label">Trạng thái</span>
+      <span id="page-status" class="status-value" aria-live="polite">Đang kết nối...</span>
+    </div>
+  </div>
+
+  <!-- GPA Cards -->
+  <div class="gpa-grid" id="gpa-grid">
+    <div class="gpa-card gpa-card-h4">
+      <span class="gpa-card-label">GPA HỆ 4</span>
+      <div id="popup-gpa4" class="gpa-card-val">--</div>
+    </div>
+    <div class="gpa-card gpa-card-h10">
+      <span class="gpa-card-label">GPA HỆ 10</span>
+      <div id="popup-gpa10" class="gpa-card-val">--</div>
+    </div>
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="actions-group">
+    <button type="button" id="btn-open-iuh" class="btn btn-primary">
+      <svg class="svg-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+        <polyline points="15 3 21 3 21 9"></polyline>
+        <line x1="10" y1="14" x2="21" y2="3"></line>
+      </svg>
+      <span id="btn-open-iuh-text">Mở trang Kết quả học tập</span>
+    </button>
+
+    <button type="button" id="btn-reset-sim" class="btn btn-secondary" disabled>
+      <svg class="svg-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+        <path d="M3 3v5h5"></path>
+      </svg>
+      <span>Khôi phục mô phỏng</span>
+    </button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p class="footer-privacy">Dữ liệu học tập không được gửi tới máy chủ của nhà phát triển.</p>
+    <p class="footer-credit">Được phát triển bởi <a href="https://www.facebook.com/htphat.04" id="dev-credit-link" class="dev-link" target="_blank" rel="noopener noreferrer">Kain</a></p>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

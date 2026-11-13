@@ -1,0 +1,40 @@
+IUH GPA Tool - Production File Inventory
+Version: 1.1.1
+Generated: 2026-10-06T07:09:29.119Z
+Total Files: 33
+Total Uncompressed Size: 1365.02 KB (1397783 bytes)
+
+Files:
+   1. manifest.json
+   2. content.js
+   3. popup.html
+   4. popup.js
+   5. icons/iuh.png
+   6. src/utils/result.js
+   7. src/parsers/NumberParser.js
+   8. src/parsers/HeaderGridParser.js
+   9. src/adapters/IUHPageAdapter.js
+  10. src/adapters/IUHCurriculumAdapter.js
+  11. src/core/CourseIdentityMatcher.js
+  12. src/core/GradingRuleEngine.js
+  13. src/core/GPAEngine.js
+  14. src/core/RequiredScoreEngine.js
+  15. src/core/GPATargetEngine.js
+  16. src/core/ForecastEngine.js
+  17. src/core/GPARescueEngine.js
+  18. src/core/ScenarioEngine.js
+  19. src/core/RiskEngine.js
+  20. src/core/SemesterSummaryEngine.js
+  21. src/core/TimelineEngine.js
+  22. src/core/ExportEngine.js
+  23. src/core/FutureSemesterEngine.js
+  24. src/core/DataProvenance.js
+  25. src/core/CurriculumProgressEngine.js
+  26. src/core/PlanCoverageEngine.js
+  27. src/core/CurriculumGapEngine.js
+  28. src/state/SimulationStore.js
+  29. src/state/selectors.js
+  30. src/ui/CompanionBar.js
+  31. src/ui/CourseSimulationPanel.js
+  32. src/ui/AppController.js
+  33. src/ui/styles.css

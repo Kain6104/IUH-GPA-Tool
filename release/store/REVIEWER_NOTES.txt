@@ -1,0 +1,28 @@
+CHROME WEB STORE REVIEWER NOTES
+Extension: Tính Điểm IUH – Công Cụ Mô Phỏng Cho Sinh Viên
+Version: 1.1.1
+
+1. SINGLE PURPOSE & SUPPORTED PAGES:
+This extension serves a single, dedicated academic purpose: assisting students of Industrial University of Ho Chi Minh City (IUH) in visualizing, simulating, and planning their GPA directly on their academic portal.
+- Main injected page: https://sv.iuh.edu.vn/ket-qua-hoc-tap.html* (IUH Student Grade Results)
+
+2. PERMISSION JUSTIFICATIONS:
+- "storage":
+  Required to store a single non-sensitive boolean setting: whether the extension is toggled ON or OFF (key: "iuhGpaEnabled"). No grade data, credentials, or PII are stored.
+- Host Permission "https://sv.iuh.edu.vn/*":
+  Required because:
+  a) The content script injects exclusively into https://sv.iuh.edu.vn/ket-qua-hoc-tap.html*
+  b) The extension performs a same-origin fetch to https://sv.iuh.edu.vn/chuong-trinh-khung.html to read the student's curriculum structure in memory during active sessions.
+  No broad patterns like <all_urls> or *://*/* are used.
+  Note: "activeTab" is NOT requested to adhere to absolute least-privilege principles.
+
+3. NETWORK ISOLATION:
+- The only extension-initiated data fetch is the same-origin IUH curriculum request described above. An optional developer-credit link opens Facebook only after a user click; that normal browser navigation may disclose standard connection/request metadata, but sends no academic data from the extension.
+- No developer server, telemetry, tracking, or external CDNs/remote executable code are used.
+- All dependencies, styles, and SVG icons are 100% offline and packaged locally.
+
+4. HOW TO TEST THE EXTENSION:
+- Step 1: In chrome://extensions, enable "Developer mode" and click "Load unpacked", selecting the "release/production" directory.
+- Step 2: Click the extension icon in the Chrome toolbar to open the popup. Observe the academic status, ON/OFF switch, GPA metrics cards, and developer link.
+- Step 3: When navigating to an IUH grade results page (https://sv.iuh.edu.vn/ket-qua-hoc-tap.html), the Companion Bar and simulation controls appear cleanly above the grade table.
+- Step 4: Toggling the extension OFF via the popup unmounts all extension elements and restores the pristine state.

@@ -1,0 +1,19 @@
+{
+  "name": "iuh-gpa-tool",
+  "version": "1.0.0",
+  "description": "Chrome extension assisting IUH students in tracking, simulating and understanding their GPA fail-safely.",
+  "main": "content.js",
+  "scripts": {
+    "test": "node --test tests/"
+  },
+  "keywords": [
+    "iuh",
+    "gpa",
+    "chrome-extension"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jsdom": "^24.1.3"
+  }
+}

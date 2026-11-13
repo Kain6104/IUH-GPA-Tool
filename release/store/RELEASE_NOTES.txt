@@ -1,0 +1,7 @@
+RELEASE NOTES — VERSION 1.1.1
+
+What's New in Version 1.1.1:
+- Export bảng điểm và phân tích chi tiết ra Excel; tiếp tục hỗ trợ CSV.
+- Cải thiện mô phỏng học kỳ tương lai, gồm lựa chọn loại môn và nhập điểm cuối kỳ cho môn thực tập/khóa luận.
+- Đối chiếu tiến độ tín chỉ CTK với tín chỉ tích lũy chính thức và hiển thị đúng nhãn học kỳ trên biểu đồ tiến trình.
+- Chặn chuyển hướng đồng bộ Chương trình khung ra ngoài tên miền IUH.
